@@ -28,7 +28,7 @@
         <a href="#the-lab">The Lab</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#services">Servicios</a>
-        <a href="#about">About</a>
+        <a href="#about">Nosotros</a>
         <a href="#contact" class="nav-cta">Contacto</a>
       </nav>
     </div>
@@ -106,7 +106,7 @@
         </div>
       </div>
     </section>
-
+    
     <!-- PORTFOLIO CON MÉTRICAS -->
     <section class="section section-dark" id="portfolio">
       <div class="container">
@@ -119,7 +119,7 @@
         <div class="bento-grid portfolio-grid">
           
           <!-- Proyecto 1 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-project="beauty-premium">
             <div class="portfolio-image">
               <div class="image-pattern pattern-1"></div>
             </div>
@@ -135,7 +135,7 @@
           </article>
 
           <!-- Proyecto 2 -->
-          <article class="portfolio-card featured">
+          <article class="portfolio-card" data-project="tech-saas">
             <div class="portfolio-image">
               <div class="image-pattern pattern-2"></div>
             </div>
@@ -151,7 +151,7 @@
           </article>
 
           <!-- Proyecto 3 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-project="fashion-lifestyle">
             <div class="portfolio-image">
               <div class="image-pattern pattern-3"></div>
             </div>
@@ -167,7 +167,7 @@
           </article>
 
           <!-- Proyecto 4 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-project="educacion-elearning">
             <div class="portfolio-image">
               <div class="image-pattern pattern-4"></div>
             </div>
@@ -183,7 +183,7 @@
           </article>
 
           <!-- Proyecto 5 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-project="restaurant-fb">
             <div class="portfolio-image">
               <div class="image-pattern pattern-5"></div>
             </div>
@@ -199,7 +199,7 @@
           </article>
 
           <!-- Proyecto 6 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-project="realestate-luxury">
             <div class="portfolio-image">
               <div class="image-pattern pattern-6"></div>
             </div>
@@ -228,7 +228,7 @@
 
         <div class="services-grid">
           
-          <article class="service-card service-large">
+          <article class="service-card">
             <div class="service-icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -302,7 +302,7 @@
     <section class="section section-dark" id="about">
       <div class="container about-block">
         <span class="section-eyebrow">Filosofía</span>
-        <h2>Manifiesto</h2>
+        <h2>Nosotros</h2>
         <div class="manifesto-text">
           <p class="manifesto-line">Creemos en marcas que se toman la estética tan en serio como sus números.</p>
           <p class="manifesto-line">No trabajamos con cualquiera: buscamos marcas que quieran elevar su categoría.</p>
@@ -324,7 +324,7 @@
               <input type="text" id="name" name="name" placeholder="Tu nombre completo" required />
             </div>
             <div class="form-row">
-                          <label for="email">Email</label>
+              <label for="email">Email</label>
               <input type="email" id="email" name="email" placeholder="tu@email.com" required />
             </div>
           </div>
@@ -349,7 +349,7 @@
             <textarea id="message" name="message" rows="4" placeholder="En una frase: ej. Posicionar mi marca como opción premium en mi sector..."></textarea>
           </div>
           
-          <button type="submit" class="btn btn-primary btn-full">Enviar briefing</button>
+          <button type="submit" class="btn btn-primary btn-full">Enviar proyecto</button>
         </form>
       </div>
     </section>
@@ -380,7 +380,7 @@
           <nav class="footer-nav">
             <a href="#portfolio">Portfolio</a>
             <a href="#the-lab">Proceso</a>
-            <a href="#about">Manifiesto</a>
+            <a href="#about">Nosotros</a>
             <a href="#contact">Contacto</a>
           </nav>
         </div>
@@ -401,6 +401,87 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL DE PROYECTO -->
+  <div class="project-modal" id="projectModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-body">
+        <!-- Header del proyecto -->
+        <header class="project-header">
+          <span class="project-category" id="modalCategory"></span>
+          <h2 class="project-title" id="modalTitle"></h2>
+          <p class="project-subtitle" id="modalSubtitle"></p>
+        </header>
+
+        <!-- Hero image -->
+        <div class="project-hero">
+          <div class="project-hero-image" id="modalHeroImage">
+            <!-- Imagen principal del proyecto -->
+          </div>
+        </div>
+
+        <!-- Detalles del proyecto -->
+        <div class="project-details">
+          <div class="detail-grid">
+            <div class="detail-item">
+              <h4>Cliente</h4>
+              <p id="modalClient"></p>
+            </div>
+            <div class="detail-item">
+              <h4>Sector</h4>
+              <p id="modalSector"></p>
+            </div>
+            <div class="detail-item">
+              <h4>Servicios</h4>
+              <p id="modalServices"></p>
+            </div>
+            <div class="detail-item">
+              <h4>Año</h4>
+              <p id="modalYear"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="project-description">
+          <h3>El Desafío</h3>
+          <p id="modalChallenge"></p>
+
+          <h3>La Solución</h3>
+          <p id="modalSolution"></p>
+
+          <h3>Resultados</h3>
+          <div id="modalResults"></div>
+        </div>
+
+        <!-- Galería de imágenes -->
+        <div class="project-gallery">
+          <h3>Galería</h3>
+          <div class="gallery-grid" id="modalGallery">
+            <!-- Se llenarán dinámicamente las imágenes -->
+          </div>
+        </div>
+
+        <!-- Navegación entre proyectos -->
+        <div class="project-navigation">
+          <button class="nav-btn nav-prev" id="navPrev">
+            <span>← Proyecto anterior</span>
+          </button>
+          <button class="nav-btn nav-next" id="navNext">
+            <span>Siguiente proyecto →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

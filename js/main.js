@@ -71,8 +71,11 @@ window.addEventListener('scroll', () => {
 });
 
 // ====================
-// CURSOR PERSONALIZADO (OPCIONAL)
+// CURSOR PERSONALIZADO - Solo animación, sin cursor del sistema
 // ====================
+
+// Ocultar cursor del sistema en toda la página
+document.body.style.cursor = 'none';
 
 const cursor = document.createElement('div');
 cursor.classList.add('custom-cursor');
@@ -80,6 +83,10 @@ document.body.appendChild(cursor);
 
 const cursorStyle = document.createElement('style');
 cursorStyle.textContent = `
+  * {
+    cursor: none !important;
+  }
+  
   .custom-cursor {
     width: 20px;
     height: 20px;
@@ -98,8 +105,9 @@ cursorStyle.textContent = `
   }
   
   .custom-cursor.hover {
-    transform: scale(1.5);
-    background: rgba(255, 46, 139, 0.2);
+    transform: scale(1.8);
+    background: rgba(255, 46, 139, 0.3);
+    border-width: 3px;
   }
 `;
 document.head.appendChild(cursorStyle);
@@ -110,8 +118,17 @@ document.addEventListener('mousemove', (e) => {
   cursor.classList.add('active');
 });
 
+// Ocultar cursor cuando sale de la ventana
+document.addEventListener('mouseleave', () => {
+  cursor.classList.remove('active');
+});
+
+document.addEventListener('mouseenter', () => {
+  cursor.classList.add('active');
+});
+
 // Efecto hover en elementos interactivos
-const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card');
+const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card, input, select, textarea');
 
 interactiveElements.forEach(el => {
   el.addEventListener('mouseenter', () => {
@@ -176,10 +193,7 @@ if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // Aquí podés integrar tu servicio de envío (Formspree, Netlify Forms, etc.)
     const formData = new FormData(contactForm);
-    
-    // Feedback visual
     const submitButton = contactForm.querySelector('.btn-primary');
     const originalText = submitButton.textContent;
     
@@ -188,7 +202,7 @@ if (contactForm) {
     
     // Simular envío (reemplazar con tu lógica real)
     setTimeout(() => {
-      submitButton.textContent = '✓ Mensaje enviado';
+      submitButton.textContent = '✓ Proyecto enviado';
       submitButton.style.background = '#a4ff3a';
       
       // Reset después de 3 segundos
@@ -224,7 +238,7 @@ window.addEventListener('scroll', () => {
 });
 
 // ====================
-// LAZY LOADING DE IMÁGENES (cuando agregues imágenes reales)
+// LAZY LOADING DE IMÁGENES
 // ====================
 
 if ('IntersectionObserver' in window) {
@@ -246,4 +260,239 @@ if ('IntersectionObserver' in window) {
   });
 }
 
-console.log('🎨 Crea Design Studio — Site loaded');
+// ====================
+// PORTFOLIO MODAL SYSTEM
+// ====================
+
+// Datos de los proyectos
+const projectsData = {
+  'beauty-premium': {
+    category: 'Branding · Social · Web',
+    title: 'Marca Premium · Beauty',
+    subtitle: 'Reposicionamiento de marca de belleza como opción premium en su sector',
+    client: 'Beauty Studio Premium',
+    sector: 'Beauty & Wellness',
+    services: 'Branding, Social Media, Web Design',
+    year: '2025',
+    challenge: 'El cliente necesitaba diferenciarse de la competencia local y justificar precios premium sin perder clientes actuales. La percepción de marca era genérica y no transmitía el nivel de servicio que ofrecían.',
+    solution: 'Desarrollamos un sistema de identidad visual sofisticado con paleta neutra y acentos dorados, fotografía editorial de alta calidad y web experience tipo revista de lujo. Rediseñamos toda la comunicación en redes sociales con templates branded y estrategia de contenidos premium.',
+    results: [
+      '+40% engagement en 90 días',
+      '0 → 12k seguidores orgánicos',
+      'Aumento de ticket promedio 35%',
+      'Retención de 90% de clientes existentes'
+    ],
+    gallery: 4
+  },
+  'tech-saas': {
+    category: 'Branding · Web Experience',
+    title: 'Tech Startup · SaaS',
+    subtitle: 'Identidad y web para plataforma SaaS B2B',
+    client: 'CloudFlow Tech',
+    sector: 'Software as a Service',
+    services: 'Branding, UI/UX, Web Development',
+    year: '2025',
+    challenge: 'Startup técnica sin identidad visual clara, necesitaba transmitir confiabilidad y modernidad para captar inversores y clientes enterprise. El equipo era 100% técnico sin experiencia en branding.',
+    solution: 'Sistema de branding minimalista tech, web con micro-interacciones fluidas en Framer, landing page optimizada para conversión con copy orientado a beneficios de negocio. Desarrollamos toda la narrativa de marca desde cero.',
+    results: [
+      '+120% conversión en landing',
+      'Reducción 45% bounce rate',
+      'Featured en Product Hunt',
+      'Cierre de ronda de inversión Serie A'
+    ],
+    gallery: 5
+  },
+  'fashion-lifestyle': {
+    category: 'Social Media Ecosystem',
+    title: 'Fashion Brand · Lifestyle',
+    subtitle: 'Ecosistema de contenido para marca de moda sustentable',
+    client: 'Verde Moda Consciente',
+    sector: 'Fashion & Lifestyle',
+    services: 'Social Media Strategy, Content Design, Photography Direction',
+    year: '2024',
+    challenge: 'Marca con producto diferenciado pero sin presencia digital fuerte, feed genérico que no reflejaba los valores de sustentabilidad. Bajo engagement y pocas ventas por Instagram.',
+    solution: 'Feed tipo editorial de lujo con fotografía de lifestyle cuidada, templates diseñados para storytelling de cada prenda, guidelines completas de fotografía y estrategia de contenidos enfocada en valores de marca.',
+    results: [
+      'Feed tipo editorial de lujo',
+      '+28% CTR en Instagram',
+      '3.5% engagement rate sostenido',
+      '+40% ventas por Instagram en 3 meses'
+    ],
+    gallery: 6
+  },
+  'educacion-elearning': {
+    category: 'Branding · Social · Web',
+    title: 'Educación · E-learning',
+    subtitle: 'Rebranding completo de plataforma educativa online',
+    client: 'Academia Digital Pro',
+    sector: 'Educación Online',
+    services: 'Branding Systems, Web Design, Social Media',
+    year: '2024',
+    challenge: 'Plataforma educativa con marca amateur que no justificaba precios altos. Competían en un mercado saturado sin diferenciación clara.',
+    solution: 'Rebranding completo con identidad premium, rediseño de plataforma web con mejor UX, estrategia de contenidos en redes para posicionamiento como referentes del sector.',
+    results: [
+      'Posicionamiento premium sector',
+      '+200% inscripciones orgánicas',
+      'Precio curso aumentado 60%',
+      'Tasa de finalización de cursos +25%'
+    ],
+    gallery: 4
+  },
+  'restaurant-fb': {
+    category: 'Branding · Art Direction',
+    title: 'Restaurant Group · F&B',
+    subtitle: 'Dirección de arte y menú digital para grupo gastronómico',
+    client: 'Grupo Gastronómico del Sur',
+    sector: 'Food & Beverage',
+    services: 'Art Direction, Menu Design, Food Photography',
+    year: '2024',
+    challenge: 'Grupo con 3 locales sin identidad unificada, menús físicos desactualizados y fotografía amateur de platos. Necesitaban modernizar sin perder esencia.',
+    solution: 'Dirección completa de sesiones fotográficas de productos, menú digital interactivo tipo revista gastronómica, estrategia visual coherente entre los 3 locales manteniendo personalidad única de cada uno.',
+    results: [
+      'Menú fotográfico tipo revista',
+      '+50% reservas vía web',
+      'Cobertura en medios gastronómicos',
+      'Incremento 35% ticket promedio'
+    ],
+    gallery: 5
+  },
+  'realestate-luxury': {
+    category: 'Web · Social · Content',
+    title: 'Real Estate · Luxury',
+    subtitle: 'Ecosistema digital para desarrolladora inmobiliaria de lujo',
+    client: 'Luxury Properties Group',
+    sector: 'Real Estate Premium',
+    services: 'Web Development, Social Content, Virtual Tours',
+    year: '2025',
+    challenge: 'Inmobiliaria de alta gama con sitio web genérico que no reflejaba el nivel de las propiedades. Leads de baja calidad y poca diferenciación vs competencia.',
+    solution: 'Sitio web premium con recorridos virtuales 360°, fotografía arquitectónica de alto nivel, estrategia de contenidos en redes para mostrar lifestyle y no solo propiedades.',
+    results: [
+      'Sitio con recorridos 360° premium',
+      '+85% tiempo en sitio',
+      '15% leads cualificados adicionales',
+      'Reducción 60% tiempo de cierre'
+    ],
+    gallery: 4
+  }
+};
+
+// Array de IDs de proyectos en orden
+const projectIds = Object.keys(projectsData);
+let currentProjectIndex = 0;
+
+// Elementos del modal
+const modal = document.getElementById('projectModal');
+const modalClose = document.getElementById('modalClose');
+const modalOverlay = modal.querySelector('.modal-overlay');
+
+// Función para abrir el modal
+function openModal(projectId) {
+  const project = projectsData[projectId];
+  if (!project) return;
+
+  // Actualizar índice del proyecto actual
+  currentProjectIndex = projectIds.indexOf(projectId);
+
+  // Llenar datos del modal
+  document.getElementById('modalCategory').textContent = project.category;
+  document.getElementById('modalTitle').textContent = project.title;
+  document.getElementById('modalSubtitle').textContent = project.subtitle;
+  document.getElementById('modalClient').textContent = project.client;
+  document.getElementById('modalSector').textContent = project.sector;
+  document.getElementById('modalServices').textContent = project.services;
+  document.getElementById('modalYear').textContent = project.year;
+  document.getElementById('modalChallenge').textContent = project.challenge;
+  document.getElementById('modalSolution').textContent = project.solution;
+
+  // Llenar resultados
+  const resultsContainer = document.getElementById('modalResults');
+  resultsContainer.innerHTML = '<ul class="portfolio-metrics">' +
+    project.results.map(result => `<li>${result}</li>`).join('') +
+    '</ul>';
+
+  // Llenar galería
+  const galleryContainer = document.getElementById('modalGallery');
+  galleryContainer.innerHTML = '';
+  for (let i = 0; i < project.gallery; i++) {
+    const galleryItem = document.createElement('div');
+    galleryItem.className = 'gallery-item';
+    galleryContainer.appendChild(galleryItem);
+  }
+
+  // Actualizar navegación
+  updateNavigation();
+
+  // Mostrar modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  // Scroll al top del modal
+  modal.scrollTop = 0;
+}
+
+// Función para cerrar el modal
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Función para actualizar botones de navegación
+function updateNavigation() {
+  const prevBtn = document.getElementById('navPrev');
+  const nextBtn = document.getElementById('navNext');
+
+  prevBtn.disabled = currentProjectIndex === 0;
+  nextBtn.disabled = currentProjectIndex === projectIds.length - 1;
+}
+
+// Función para navegar entre proyectos
+function navigateProject(direction) {
+  const newIndex = currentProjectIndex + direction;
+  if (newIndex >= 0 && newIndex < projectIds.length) {
+    const newProjectId = projectIds[newIndex];
+    openModal(newProjectId);
+  }
+}
+
+// Event listeners para las cards del portfolio
+document.querySelectorAll('.portfolio-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const projectId = card.dataset.project;
+    if (projectId) {
+      openModal(projectId);
+    }
+  });
+});
+
+// Event listener para cerrar modal
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', closeModal);
+
+// Event listeners para navegación
+document.getElementById('navPrev').addEventListener('click', () => {
+  navigateProject(-1);
+});
+
+document.getElementById('navNext').addEventListener('click', () => {
+  navigateProject(1);
+});
+
+// Cerrar modal con ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('active')) {
+    closeModal();
+  }
+});
+
+// Navegación con flechas del teclado
+document.addEventListener('keydown', (e) => {
+  if (!modal.classList.contains('active')) return;
+  
+  if (e.key === 'ArrowLeft') {
+    navigateProject(-1);
+  } else if (e.key === 'ArrowRight') {
+    navigateProject(1);
+  }
+});
+
+console.log('🎨 Crea Design Studio — Site loaded with modal system');

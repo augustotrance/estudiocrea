@@ -179,10 +179,11 @@ p {
   height: 56px;
   width: auto;
   transition: transform 0.3s ease;
+  transform: rotate(-90deg);
 }
 
 .logo:hover img {
-  transform: scale(1.05);
+  transform: rotate(-90deg) scale(1.05);
 }
 
 .main-nav {
@@ -535,6 +536,7 @@ p {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .portfolio-card::before {
@@ -557,10 +559,6 @@ p {
 
 .portfolio-card:hover::before {
   opacity: 1;
-}
-
-.portfolio-card.featured {
-  grid-column: span 2;
 }
 
 .portfolio-image {
@@ -678,10 +676,6 @@ p {
 
 .service-card:hover::before {
   opacity: 1;
-}
-
-.service-large {
-  grid-column: span 2;
 }
 
 .service-icon {
@@ -885,6 +879,7 @@ textarea {
   height: 40px;
   width: auto;
   margin-bottom: 1rem;
+  transform: rotate(-90deg);
 }
 
 .footer-col p {
@@ -928,6 +923,244 @@ textarea {
 }
 
 /* ====================
+   PROJECT MODAL
+   ==================== */
+
+.project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  overflow-y: auto;
+}
+
+.project-modal.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem 4rem;
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.project-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-category {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-green);
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.project-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.project-hero {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.project-hero-image {
+  width: 100%;
+  min-height: 500px;
+  background: linear-gradient(135deg, rgba(255, 46, 139, 0.15), rgba(164, 255, 58, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.project-hero-image::after {
+  content: 'Imagen Principal';
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.project-details {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.detail-item h4 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-pink);
+  margin-bottom: 0.5rem;
+}
+
+.detail-item p {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.project-description {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-description h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.project-description h3:first-child {
+  margin-top: 0;
+}
+
+.project-description p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.project-gallery h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 300px;
+  background: linear-gradient(135deg, rgba(255, 46, 139, 0.1), rgba(164, 255, 58, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item::after {
+  content: 'Imagen';
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.project-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-btn {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 46, 139, 0.3);
+  transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ====================
    RESPONSIVE
    ==================== */
 
@@ -948,7 +1181,7 @@ textarea {
   }
 
   .main-nav {
-    display: none; /* Implementar menú hamburguesa si lo necesitás */
+    display: none;
   }
 
   .hero {
@@ -985,11 +1218,32 @@ textarea {
   .manifesto-line {
     font-size: 1.25rem;
   }
+
+  .modal-content {
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .modal-close {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .project-details {
+    padding: 2rem 1.5rem;
+  }
+
+  .detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-navigation {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 480px) {
   .logo img {
-    height: 40px;
+    height: 48px;
   }
 
   h1 {
