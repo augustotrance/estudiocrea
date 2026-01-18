@@ -378,7 +378,7 @@ const projectsData = {
     'alquilerdeautos-hertz': {
         category: 'Web · Social · Content',
         title: 'Alquiler de autos · Hertz',
-        subtitle: 'Ecosistema digital para desarrolladora inmobiliaria de lujo',
+        subtitle: 'Ecosistema digital para empresa de alquiler de autos',
         client: 'Hertz',
         sector: 'Alquiler de autos',
         services: 'Web Development, Social Content, Piezas gráficas',
@@ -391,7 +391,7 @@ const projectsData = {
             '15% leads cualificados adicionales',
             'Reducción 60% tiempo de cierre'
         ],
-        heroImage: 'imagenes/portfolio/hertz',
+        heroImage: 'imagenes/portfolio/logo_hertz.png',
         gallery: [
             'imagenes/portfolio/hertz-1.jpg',
             'imagenes/portfolio/hertz-2.jpg',
