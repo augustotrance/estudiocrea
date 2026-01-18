@@ -165,13 +165,13 @@ if (heroStats) {
 }
 
 // ====================
-// FORMULARIO - VALIDACIÓN BÁSICA
+// FORMULARIO - ENVÍO VÍA FORMSPREE
 // ====================
 
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const submitButton = contactForm.querySelector('.btn-primary');
@@ -180,19 +180,39 @@ if (contactForm) {
         submitButton.textContent = 'Enviando...';
         submitButton.disabled = true;
 
-        // Simular envío (reemplazar con tu lógica real)
-        setTimeout(() => {
-            submitButton.textContent = '✓ Proyecto enviado';
-            submitButton.style.background = '#a4ff3a';
+        const formData = new FormData(contactForm);
 
-            // Reset después de 3 segundos
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                submitButton.textContent = '✓ Proyecto enviado';
+                submitButton.style.background = '#a4ff3a';
+
+                setTimeout(() => {
+                    contactForm.reset();
+                    submitButton.textContent = originalText;
+                    submitButton.style.background = '';
+                    submitButton.disabled = false;
+                }, 3000);
+            } else {
+                throw new Error('Error al enviar');
+            }
+        } catch (error) {
+            submitButton.textContent = 'Error, reintentar';
+            submitButton.style.background = '#b91c1c';
             setTimeout(() => {
-                contactForm.reset();
                 submitButton.textContent = originalText;
                 submitButton.style.background = '';
                 submitButton.disabled = false;
             }, 3000);
-        }, 1500);
+        }
     });
 }
 
