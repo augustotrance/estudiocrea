@@ -23,9 +23,10 @@
     <div class="container">
       <a href="#top" class="logo">
         <img src="imagenes/logo_crea.png" alt="Logo Crea Design Studio">
+        <span class="logo-text">CREA Design Studio</span>
       </a>
       <nav class="main-nav">
-        <a href="#the-lab">The Lab</a>
+        <a href="#laboratorio">Laboratorio</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#services">Servicios</a>
         <a href="#about">Nosotros</a>
@@ -36,20 +37,25 @@
 
   <main id="top">
 
-    <!-- HERO -->
+    <!-- HERO CON VIDEO -->
     <section class="hero" id="hero">
-      <div class="hero-bg-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-      </div>
+      <!-- Video de fondo -->
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="video_portada.mp4" type="video/mp4">
+      </video>
+      
+      <!-- Overlay con degradado -->
+      <div class="hero-video-overlay"></div>
       
       <div class="container hero-content">
-        <div class="hero-badge fade-in">Estudio Boutique</div>
-        <h1 class="fade-in-up">No solo diseñamos,<br>creamos legados visuales.</h1>
-        <p class="fade-in-up delay-1">Estudio boutique de branding, social media y web para marcas que quieren cobrar más, no competir por precio.</p>
-        <div class="hero-ctas fade-in-up delay-2">
-          <a href="#contact" class="btn btn-primary">Agendar llamada</a>
-          <a href="#portfolio" class="btn btn-ghost">Ver proyectos</a>
+        <div class="hero-text-content">
+          <div class="hero-badge fade-in">Estudio Boutique</div>
+          <h1 class="fade-in-up">No solo diseñamos,<br>creamos legados visuales.</h1>
+          <p class="fade-in-up delay-1">Estudio boutique de branding, social media y web para marcas que quieren cobrar más, no competir por precio.</p>
+          <div class="hero-ctas fade-in-up delay-2">
+            <a href="#contact" class="btn btn-primary">Agendar llamada</a>
+            <a href="#portfolio" class="btn btn-ghost">Ver proyectos</a>
+          </div>
         </div>
         
         <!-- Stats mini -->
@@ -70,12 +76,12 @@
       </div>
     </section>
 
-    <!-- THE LAB (PROCESO) -->
-    <section class="section" id="the-lab">
+    <!-- LABORATORIO (antes THE LAB) -->
+    <section class="section" id="laboratorio">
       <div class="container">
         <header class="section-header">
           <span class="section-eyebrow">Proceso</span>
-          <h2>The Lab</h2>
+          <h2>Laboratorio</h2>
           <p>De boceto a sistema visual completo. Nuestro proceso transforma ideas en marcas que generan impacto medible.</p>
         </header>
 
@@ -106,8 +112,8 @@
         </div>
       </div>
     </section>
-    
-    <!-- PORTFOLIO CON MÉTRICAS -->
+
+    <!-- PORTFOLIO CON IMÁGENES REALES Y LINKS -->
     <section class="section section-dark" id="portfolio">
       <div class="container">
         <header class="section-header">
@@ -119,8 +125,9 @@
         <div class="bento-grid portfolio-grid">
           
           <!-- Proyecto 1 -->
-          <article class="portfolio-card" data-project="beauty-premium">
+          <article class="portfolio-card" data-project="beauty-premium" data-url="">
             <div class="portfolio-image">
+              <img src="imagenes/portfolio/beauty-premium.jpg" alt="Marca Premium Beauty" class="project-img">
               <div class="image-pattern pattern-1"></div>
             </div>
             <div class="portfolio-meta">
@@ -135,8 +142,9 @@
           </article>
 
           <!-- Proyecto 2 -->
-          <article class="portfolio-card" data-project="tech-saas">
+          <article class="portfolio-card" data-project="tech-saas" data-url="">
             <div class="portfolio-image">
+              <img src="imagenes/portfolio/tech-saas.jpg" alt="Tech Startup SaaS" class="project-img">
               <div class="image-pattern pattern-2"></div>
             </div>
             <div class="portfolio-meta">
@@ -151,8 +159,9 @@
           </article>
 
           <!-- Proyecto 3 -->
-          <article class="portfolio-card" data-project="fashion-lifestyle">
+          <article class="portfolio-card" data-project="fashion-lifestyle" data-url="">
             <div class="portfolio-image">
+              <img src="imagenes/portfolio/fashion-lifestyle.jpg" alt="Fashion Brand Lifestyle" class="project-img">
               <div class="image-pattern pattern-3"></div>
             </div>
             <div class="portfolio-meta">
@@ -167,8 +176,9 @@
           </article>
 
           <!-- Proyecto 4 -->
-          <article class="portfolio-card" data-project="educacion-elearning">
+          <article class="portfolio-card" data-project="educacion-elearning" data-url="">
             <div class="portfolio-image">
+              <img src="imagenes/portfolio/educacion-elearning.jpg" alt="Educación E-learning" class="project-img">
               <div class="image-pattern pattern-4"></div>
             </div>
             <div class="portfolio-meta">
@@ -183,8 +193,9 @@
           </article>
 
           <!-- Proyecto 5 -->
-          <article class="portfolio-card" data-project="restaurant-fb">
+          <article class="portfolio-card" data-project="restaurant-fb" data-url="">
             <div class="portfolio-image">
+              <img src="imagenes/portfolio/restaurant-fb.jpg" alt="Restaurant Group" class="project-img">
               <div class="image-pattern pattern-5"></div>
             </div>
             <div class="portfolio-meta">
@@ -199,8 +210,9 @@
           </article>
 
           <!-- Proyecto 6 -->
-          <article class="portfolio-card" data-project="realestate-luxury">
+          <article class="portfolio-card" data-project="realestate-luxury" data-url="">
             <div class="portfolio-image">
+              <img src="imagenes/portfolio/realestate-luxury.jpg" alt="Real Estate Luxury" class="project-img">
               <div class="image-pattern pattern-6"></div>
             </div>
             <div class="portfolio-meta">
@@ -356,12 +368,15 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER CON "TRABAJA CON NOSOTROS" -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-col">
-          <img src="imagenes/logo_crea.png" alt="Logo Crea Design Studio" class="footer-logo">
+          <div class="footer-logo-wrapper">
+            <img src="imagenes/logo_crea.png" alt="Logo Crea Design Studio" class="footer-logo">
+            <span class="footer-logo-text">CREA Design Studio</span>
+          </div>
           <p>Estudio boutique de branding,<br>social media y web.</p>
         </div>
         
@@ -379,7 +394,7 @@
           <h4>Estudio</h4>
           <nav class="footer-nav">
             <a href="#portfolio">Portfolio</a>
-            <a href="#the-lab">Proceso</a>
+            <a href="#laboratorio">Proceso</a>
             <a href="#about">Nosotros</a>
             <a href="#contact">Contacto</a>
           </nav>
@@ -393,6 +408,21 @@
             <a href="https://linkedin.com" target="_blank">LinkedIn</a>
           </nav>
         </div>
+
+        <!-- Nueva sección: Trabaja con nosotros -->
+        <div class="footer-col footer-col-wide">
+          <h4>Sumate al equipo</h4>
+          <p class="footer-careers-text">¿Sos diseñador, developer o creativo? Envianos tu portfolio y CV.</p>
+          <div class="footer-careers-actions">
+            <a href="mailto:estudiodcrea@gmail.com?subject=Quiero trabajar en CREA Design Studio" class="btn btn-ghost btn-small">
+              Enviar email
+            </a>
+            <button class="btn btn-ghost btn-small" id="uploadCVBtn">
+              Cargar CV
+            </button>
+          </div>
+          <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" style="display: none;">
+        </div>
       </div>
       
       <div class="footer-bottom">
@@ -402,7 +432,7 @@
     </div>
   </footer>
 
-  <!-- MODAL DE PROYECTO -->
+  <!-- MODAL DE PROYECTO CON IMÁGENES -->
   <div class="project-modal" id="projectModal">
     <div class="modal-overlay"></div>
     <div class="modal-content">
@@ -424,7 +454,7 @@
         <!-- Hero image -->
         <div class="project-hero">
           <div class="project-hero-image" id="modalHeroImage">
-            <!-- Imagen principal del proyecto -->
+            <img src="" alt="" id="modalHeroImg" class="modal-hero-img">
           </div>
         </div>
 
@@ -468,6 +498,13 @@
           <div class="gallery-grid" id="modalGallery">
             <!-- Se llenarán dinámicamente las imágenes -->
           </div>
+        </div>
+
+        <!-- Link externo al proyecto completo -->
+        <div class="project-external-link" id="modalExternalLink" style="display: none;">
+          <a href="#" target="_blank" class="btn btn-primary" id="modalExternalLinkBtn">
+            Ver proyecto completo →
+          </a>
         </div>
 
         <!-- Navegación entre proyectos -->

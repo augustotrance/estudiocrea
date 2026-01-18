@@ -55,26 +55,9 @@ style.textContent = `
 document.head.appendChild(style);
 
 // ====================
-// PARALLAX SUTIL EN HERO
-// ====================
-
-const heroShapes = document.querySelectorAll('.shape');
-
-window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
-  const parallaxSpeed = 0.5;
-  
-  heroShapes.forEach((shape, index) => {
-    const speed = parallaxSpeed * (index + 1);
-    shape.style.transform = `translateY(${scrolled * speed}px)`;
-  });
-});
-
-// ====================
 // CURSOR PERSONALIZADO - Solo animación, sin cursor del sistema
 // ====================
 
-// Ocultar cursor del sistema en toda la página
 document.body.style.cursor = 'none';
 
 const cursor = document.createElement('div');
@@ -118,7 +101,6 @@ document.addEventListener('mousemove', (e) => {
   cursor.classList.add('active');
 });
 
-// Ocultar cursor cuando sale de la ventana
 document.addEventListener('mouseleave', () => {
   cursor.classList.remove('active');
 });
@@ -160,7 +142,6 @@ const animateCounter = (element, target, duration = 2000) => {
   }, 16);
 };
 
-// Observar stats para animarlos cuando entren en viewport
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
@@ -238,6 +219,34 @@ window.addEventListener('scroll', () => {
 });
 
 // ====================
+// UPLOAD CV FUNCTIONALITY
+// ====================
+
+const uploadCVBtn = document.getElementById('uploadCVBtn');
+const cvFileInput = document.getElementById('cvFileInput');
+
+if (uploadCVBtn && cvFileInput) {
+  uploadCVBtn.addEventListener('click', () => {
+    cvFileInput.click();
+  });
+
+  cvFileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Aquí puedes implementar la lógica para enviar el archivo
+      // Por ahora, solo mostramos un mensaje
+      const fileName = file.name;
+      const fileSize = (file.size / 1024).toFixed(2);
+      
+      alert(`Archivo seleccionado: ${fileName} (${fileSize} KB)\n\nPara enviar tu CV, por favor contactanos a estudiodcrea@gmail.com`);
+      
+      // Limpiar el input
+      cvFileInput.value = '';
+    }
+  });
+}
+
+// ====================
 // LAZY LOADING DE IMÁGENES
 // ====================
 
@@ -261,10 +270,10 @@ if ('IntersectionObserver' in window) {
 }
 
 // ====================
-// PORTFOLIO MODAL SYSTEM
+// PORTFOLIO MODAL SYSTEM CON URLs E IMÁGENES
 // ====================
 
-// Datos de los proyectos
+// Datos de los proyectos (editá las URLs cuando las tengas listas)
 const projectsData = {
   'beauty-premium': {
     category: 'Branding · Social · Web',
@@ -282,7 +291,9 @@ const projectsData = {
       'Aumento de ticket promedio 35%',
       'Retención de 90% de clientes existentes'
     ],
-    gallery: 4
+    heroImage: 'imagenes/portfolio/beauty-premium.jpg',
+    gallery: ['imagenes/portfolio/beauty-1.jpg', 'imagenes/portfolio/beauty-2.jpg', 'imagenes/portfolio/beauty-3.jpg', 'imagenes/portfolio/beauty-4.jpg'],
+    externalUrl: '' // Dejalo vacío o agregá la URL cuando la tengas
   },
   'tech-saas': {
     category: 'Branding · Web Experience',
@@ -300,7 +311,9 @@ const projectsData = {
       'Featured en Product Hunt',
       'Cierre de ronda de inversión Serie A'
     ],
-    gallery: 5
+    heroImage: 'imagenes/portfolio/tech-saas.jpg',
+    gallery: ['imagenes/portfolio/tech-1.jpg', 'imagenes/portfolio/tech-2.jpg', 'imagenes/portfolio/tech-3.jpg', 'imagenes/portfolio/tech-4.jpg', 'imagenes/portfolio/tech-5.jpg'],
+    externalUrl: ''
   },
   'fashion-lifestyle': {
     category: 'Social Media Ecosystem',
@@ -318,7 +331,9 @@ const projectsData = {
       '3.5% engagement rate sostenido',
       '+40% ventas por Instagram en 3 meses'
     ],
-    gallery: 6
+    heroImage: 'imagenes/portfolio/fashion-lifestyle.jpg',
+    gallery: ['imagenes/portfolio/fashion-1.jpg', 'imagenes/portfolio/fashion-2.jpg', 'imagenes/portfolio/fashion-3.jpg', 'imagenes/portfolio/fashion-4.jpg', 'imagenes/portfolio/fashion-5.jpg', 'imagenes/portfolio/fashion-6.jpg'],
+    externalUrl: ''
   },
   'educacion-elearning': {
     category: 'Branding · Social · Web',
@@ -336,7 +351,9 @@ const projectsData = {
       'Precio curso aumentado 60%',
       'Tasa de finalización de cursos +25%'
     ],
-    gallery: 4
+    heroImage: 'imagenes/portfolio/educacion-elearning.jpg',
+    gallery: ['imagenes/portfolio/edu-1.jpg', 'imagenes/portfolio/edu-2.jpg', 'imagenes/portfolio/edu-3.jpg', 'imagenes/portfolio/edu-4.jpg'],
+    externalUrl: ''
   },
   'restaurant-fb': {
     category: 'Branding · Art Direction',
@@ -354,7 +371,9 @@ const projectsData = {
       'Cobertura en medios gastronómicos',
       'Incremento 35% ticket promedio'
     ],
-    gallery: 5
+    heroImage: 'imagenes/portfolio/restaurant-fb.jpg',
+    gallery: ['imagenes/portfolio/rest-1.jpg', 'imagenes/portfolio/rest-2.jpg', 'imagenes/portfolio/rest-3.jpg', 'imagenes/portfolio/rest-4.jpg', 'imagenes/portfolio/rest-5.jpg'],
+    externalUrl: ''
   },
   'realestate-luxury': {
     category: 'Web · Social · Content',
@@ -372,7 +391,9 @@ const projectsData = {
       '15% leads cualificados adicionales',
       'Reducción 60% tiempo de cierre'
     ],
-    gallery: 4
+    heroImage: 'imagenes/portfolio/realestate-luxury.jpg',
+    gallery: ['imagenes/portfolio/real-1.jpg', 'imagenes/portfolio/real-2.jpg', 'imagenes/portfolio/real-3.jpg', 'imagenes/portfolio/real-4.jpg'],
+    externalUrl: ''
   }
 };
 
@@ -404,6 +425,16 @@ function openModal(projectId) {
   document.getElementById('modalChallenge').textContent = project.challenge;
   document.getElementById('modalSolution').textContent = project.solution;
 
+  // Llenar imagen hero
+  const heroImg = document.getElementById('modalHeroImg');
+  if (project.heroImage) {
+    heroImg.src = project.heroImage;
+    heroImg.alt = project.title;
+    heroImg.style.display = 'block';
+  } else {
+    heroImg.style.display = 'none';
+  }
+
   // Llenar resultados
   const resultsContainer = document.getElementById('modalResults');
   resultsContainer.innerHTML = '<ul class="portfolio-metrics">' +
@@ -413,10 +444,26 @@ function openModal(projectId) {
   // Llenar galería
   const galleryContainer = document.getElementById('modalGallery');
   galleryContainer.innerHTML = '';
-  for (let i = 0; i < project.gallery; i++) {
-    const galleryItem = document.createElement('div');
-    galleryItem.className = 'gallery-item';
-    galleryContainer.appendChild(galleryItem);
+  if (project.gallery && project.gallery.length > 0) {
+    project.gallery.forEach(imgSrc => {
+      const galleryItem = document.createElement('div');
+      galleryItem.className = 'gallery-item';
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.alt = 'Galería ' + project.title;
+      galleryItem.appendChild(img);
+      galleryContainer.appendChild(galleryItem);
+    });
+  }
+
+  // Mostrar/ocultar link externo
+  const externalLinkSection = document.getElementById('modalExternalLink');
+  const externalLinkBtn = document.getElementById('modalExternalLinkBtn');
+  if (project.externalUrl && project.externalUrl.trim() !== '') {
+    externalLinkBtn.href = project.externalUrl;
+    externalLinkSection.style.display = 'block';
+  } else {
+    externalLinkSection.style.display = 'none';
   }
 
   // Actualizar navegación
@@ -458,7 +505,13 @@ function navigateProject(direction) {
 document.querySelectorAll('.portfolio-card').forEach(card => {
   card.addEventListener('click', () => {
     const projectId = card.dataset.project;
-    if (projectId) {
+    const externalUrl = card.dataset.url;
+    
+    // Si tiene URL externa y está definida, ir directamente
+    if (externalUrl && externalUrl.trim() !== '') {
+      window.open(externalUrl, '_blank');
+    } else if (projectId) {
+      // Si no, abrir modal
       openModal(projectId);
     }
   });
@@ -495,4 +548,4 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-console.log('🎨 Crea Design Studio — Site loaded with modal system');
+console.log('🎨 Crea Design Studio — Site loaded with full functionality');
