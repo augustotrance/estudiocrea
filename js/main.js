@@ -396,7 +396,8 @@ const projectsData = {
             'imagenes/portfolio/hertz1.png',
             'imagenes/portfolio/hertz2.png',
             'imagenes/portfolio/hertz3.png',
-            'imagenes/portfolio/hertz4.png'
+            'imagenes/portfolio/hertz4.png',
+            'imagenes/portfolio/hertz5.png'
         ],
         externalUrl: ''
     }
