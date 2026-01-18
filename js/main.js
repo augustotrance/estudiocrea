@@ -287,13 +287,13 @@ const projectsData = {
             'Featured en Product Hunt',
             'Cierre de con clientes Serie A'
         ],
-        heroImage: 'imagenes/portfolio/logo_derito.jpg',
+        heroImage: 'imagenes/portfolio/logoderito.png',
         gallery: [
-            'imagenes/portfolio/derito_1.jpg',
-            'imagenes/portfolio/derito_2.jpg',
-            'imagenes/portfolio/derito_3.jpg',
-            'imagenes/portfolio/derito_4.jpg',
-            'imagenes/portfolio/derito_5.jpg'
+            'imagenes/portfolio/derito_1.png',
+            'imagenes/portfolio/derito_2.png',
+            'imagenes/portfolio/derito_3.png',
+            'imagenes/portfolio/derito_4.png',
+            'imagenes/portfolio/derito_5.png'
         ],
         externalUrl: ''
     },
@@ -391,7 +391,7 @@ const projectsData = {
             '15% leads cualificados adicionales',
             'Reducción 60% tiempo de cierre'
         ],
-        heroImage: 'imagenes/portfolio/logo_hertz.png',
+        heroImage: 'imagenes/portfolio/logohertz.png',
         gallery: [
             'imagenes/portfolio/hertz_1.png',
             'imagenes/portfolio/hertz_2.png',
