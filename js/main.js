@@ -375,28 +375,28 @@ const projectsData = {
         ],
         externalUrl: ''
     },
-    'realestate-luxury': {
+    'alquilerdeautos-hertz': {
         category: 'Web · Social · Content',
-        title: 'Real Estate · Luxury',
+        title: 'Alquiler de autos · Hertz',
         subtitle: 'Ecosistema digital para desarrolladora inmobiliaria de lujo',
-        client: 'Luxury Properties Group',
-        sector: 'Real Estate Premium',
-        services: 'Web Development, Social Content, Virtual Tours',
-        year: '2025',
-        challenge: 'Inmobiliaria de alta gama con sitio web genérico que no reflejaba el nivel de las propiedades. Leads de baja calidad y poca diferenciación vs competencia.',
-        solution: 'Sitio web premium con recorridos virtuales 360°, fotografía arquitectónica de alto nivel, estrategia de contenidos en redes para mostrar lifestyle y no solo propiedades.',
+        client: 'Hertz',
+        sector: 'Alquiler de autos',
+        services: 'Web Development, Social Content, Piezas gráficas',
+        year: '2022',
+        challenge: 'Creamos la página Web y posicionamos su empresa en Google.',
+        solution: 'Desarrollamos la identidad de Hertz. Diseñamos folletería y videos publicitarios. Contruimos la estrategia de contenidos en redes sociales.',
         results: [
-            'Sitio con recorridos 360° premium',
+            'Modernización de la marca',
             '+85% tiempo en sitio',
             '15% leads cualificados adicionales',
             'Reducción 60% tiempo de cierre'
         ],
-        heroImage: 'imagenes/portfolio/realestate-luxury.jpg',
+        heroImage: 'imagenes/portfolio/hertz',
         gallery: [
-            'imagenes/portfolio/real-1.jpg',
-            'imagenes/portfolio/real-2.jpg',
-            'imagenes/portfolio/real-3.jpg',
-            'imagenes/portfolio/real-4.jpg'
+            'imagenes/portfolio/hertz-1.jpg',
+            'imagenes/portfolio/hertz-2.jpg',
+            'imagenes/portfolio/hertz-3.jpg',
+            'imagenes/portfolio/hertz-4.jpg'
         ],
         externalUrl: ''
     }
