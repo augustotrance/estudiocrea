@@ -1,525 +1,588 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crea Design Studio — Legados Visuales</title>
-  <meta name="description" content="Estudio boutique de branding, social media y web para marcas que quieren cobrar más, no competir por precio." />
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea Design Studio — Legados Visuales</title>
+    <meta name="description" content="Estudio boutique de branding, social media y web para marcas que quieren cobrar más, no competir por precio.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body id="top">
+    <!-- Decorative grid background -->
+    <div class="grid-overlay"></div>
 
-  <!-- Decorative grid background -->
-  <div class="grid-overlay"></div>
-
-  <!-- HEADER / NAV -->
-  <header class="site-header">
-    <div class="container">
-      <a href="#top" class="logo">
-        <img src="imagenes/logo_crea.png" alt="Logo Crea Design Studio">
-        <span class="logo-text">CREA Design Studio</span>
-      </a>
-      <nav class="main-nav">
-        <a href="#laboratorio">Laboratorio</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Servicios</a>
-        <a href="#about">Nosotros</a>
-        <a href="#contact" class="nav-cta">Contacto</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-
-    <!-- HERO CON VIDEO -->
-    <section class="hero" id="hero">
-      <!-- Video de fondo -->
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="video_portada.mp4" type="video/mp4">
-      </video>
-      
-      <!-- Overlay con degradado -->
-      <div class="hero-video-overlay"></div>
-      
-      <div class="container hero-content">
-        <div class="hero-text-content">
-          <div class="hero-badge fade-in">Estudio Boutique</div>
-          <h1 class="fade-in-up">No solo diseñamos,<br>creamos legados visuales.</h1>
-          <p class="fade-in-up delay-1">Estudio boutique de branding, social media y web para marcas que quieren cobrar más, no competir por precio.</p>
-          <div class="hero-ctas fade-in-up delay-2">
-            <a href="#contact" class="btn btn-primary">Agendar llamada</a>
-            <a href="#portfolio" class="btn btn-ghost">Ver proyectos</a>
-          </div>
-        </div>
-        
-        <!-- Stats mini -->
-        <div class="hero-stats fade-in-up delay-3">
-          <div class="stat">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">Proyectos</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">12</span>
-            <span class="stat-label">Sectores</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">85%</span>
-            <span class="stat-label">Recurrencia</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LABORATORIO (antes THE LAB) -->
-    <section class="section" id="laboratorio">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-eyebrow">Proceso</span>
-          <h2>Laboratorio</h2>
-          <p>De boceto a sistema visual completo. Nuestro proceso transforma ideas en marcas que generan impacto medible.</p>
-        </header>
-
-        <div class="lab-steps">
-          <article class="lab-step">
-            <div class="step-number">01</div>
-            <h3>Exploramos el territorio visual</h3>
-            <p>Investigación profunda de sector, competencia y referencias para encontrar el lenguaje único de la marca.</p>
-          </article>
-          
-          <article class="lab-step">
-            <div class="step-number">02</div>
-            <h3>Tensionamos la marca</h3>
-            <p>Exploraciones de múltiples rutas visuales y conceptuales hasta encontrar la que genera mayor diferenciación.</p>
-          </article>
-          
-          <article class="lab-step">
-            <div class="step-number">03</div>
-            <h3>Diseñamos sistemas, no solo logos</h3>
-            <p>Identidad aplicable a todos los puntos de contacto: social, web, packaging y piezas clave de comunicación.</p>
-          </article>
-          
-          <article class="lab-step">
-            <div class="step-number">04</div>
-            <h3>Activamos la marca</h3>
-            <p>Lanzamiento estratégico en social media y ecosistema digital con plan de contenidos inicial incluido.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO CON IMÁGENES REALES Y LINKS -->
-    <section class="section section-dark" id="portfolio">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-eyebrow">Casos</span>
-          <h2>Proyectos que hablan<br>con números</h2>
-          <p>Cada proyecto es un caso de negocio, no solo un trabajo estético.</p>
-        </header>
-
-        <div class="bento-grid portfolio-grid">
-          
-          <!-- Proyecto 1 -->
-          <article class="portfolio-card" data-project="beauty-premium" data-url="">
-            <div class="portfolio-image">
-              <img src="imagenes/portfolio/beauty-premium.jpg" alt="Marca Premium Beauty" class="project-img">
-              <div class="image-pattern pattern-1"></div>
-            </div>
-            <div class="portfolio-meta">
-              <h3>Marca Premium · Beauty</h3>
-              <p class="portfolio-tag">Branding · Social · Web</p>
-              <ul class="portfolio-metrics">
-                <li>+40% engagement en 90 días</li>
-                <li>0 → 12k seguidores orgánicos</li>
-                <li>Aumento de ticket promedio 35%</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Proyecto 2 -->
-          <article class="portfolio-card" data-project="tech-saas" data-url="">
-            <div class="portfolio-image">
-              <img src="imagenes/portfolio/tech-saas.jpg" alt="Tech Startup SaaS" class="project-img">
-              <div class="image-pattern pattern-2"></div>
-            </div>
-            <div class="portfolio-meta">
-              <h3>Tech Startup · SaaS</h3>
-              <p class="portfolio-tag">Branding · Web Experience</p>
-              <ul class="portfolio-metrics">
-                <li>+120% conversión en landing</li>
-                <li>Reducción 45% bounce rate</li>
-                <li>Featured en Product Hunt</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Proyecto 3 -->
-          <article class="portfolio-card" data-project="fashion-lifestyle" data-url="">
-            <div class="portfolio-image">
-              <img src="imagenes/portfolio/fashion-lifestyle.jpg" alt="Fashion Brand Lifestyle" class="project-img">
-              <div class="image-pattern pattern-3"></div>
-            </div>
-            <div class="portfolio-meta">
-              <h3>Fashion Brand · Lifestyle</h3>
-              <p class="portfolio-tag">Social Media Ecosystem</p>
-              <ul class="portfolio-metrics">
-                <li>Feed tipo editorial de lujo</li>
-                <li>+28% CTR en Instagram</li>
-                <li>3.5% engagement rate sostenido</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Proyecto 4 -->
-          <article class="portfolio-card" data-project="educacion-elearning" data-url="">
-            <div class="portfolio-image">
-              <img src="imagenes/portfolio/educacion-elearning.jpg" alt="Educación E-learning" class="project-img">
-              <div class="image-pattern pattern-4"></div>
-            </div>
-            <div class="portfolio-meta">
-              <h3>Educación · E-learning</h3>
-              <p class="portfolio-tag">Branding · Social · Web</p>
-              <ul class="portfolio-metrics">
-                <li>Posicionamiento premium sector</li>
-                <li>+200% inscripciones orgánicas</li>
-                <li>Precio curso aumentado 60%</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Proyecto 5 -->
-          <article class="portfolio-card" data-project="restaurant-fb" data-url="">
-            <div class="portfolio-image">
-              <img src="imagenes/portfolio/restaurant-fb.jpg" alt="Restaurant Group" class="project-img">
-              <div class="image-pattern pattern-5"></div>
-            </div>
-            <div class="portfolio-meta">
-              <h3>Restaurant Group · F&B</h3>
-              <p class="portfolio-tag">Branding · Art Direction</p>
-              <ul class="portfolio-metrics">
-                <li>Menú fotográfico tipo revista</li>
-                <li>+50% reservas vía web</li>
-                <li>Cobertura en medios gastronómicos</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Proyecto 6 -->
-          <article class="portfolio-card" data-project="realestate-luxury" data-url="">
-            <div class="portfolio-image">
-              <img src="imagenes/portfolio/realestate-luxury.jpg" alt="Real Estate Luxury" class="project-img">
-              <div class="image-pattern pattern-6"></div>
-            </div>
-            <div class="portfolio-meta">
-              <h3>Real Estate · Luxury</h3>
-              <p class="portfolio-tag">Web · Social · Content</p>
-              <ul class="portfolio-metrics">
-                <li>Sitio con recorridos 360° premium</li>
-                <li>+85% tiempo en sitio</li>
-                <li>15% leads cualificados adicionales</li>
-              </ul>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICIOS ASIMÉTRICOS -->
-    <section class="section" id="services">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-eyebrow">Servicios</span>
-          <h2>Sistemas visuales para marcas<br>que juegan en serio</h2>
-        </header>
-
-        <div class="services-grid">
-          
-          <article class="service-card">
-            <div class="service-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <path d="M9 3v18M15 3v18"/>
-              </svg>
-            </div>
-            <h3>Branding Systems</h3>
-            <p>Manual de marca que no se queda en un PDF olvidado. Sistema visual completo aplicable a todos los puntos de contacto de tu negocio.</p>
-            <ul class="service-includes">
-              <li>Identidad visual completa</li>
-              <li>Manual de aplicación</li>
-              <li>Templates editables</li>
-              <li>Librería de assets</li>
-            </ul>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="15" rx="2"/>
-                <path d="M16 3l-4 4-4-4"/>
-              </svg>
-            </div>
-            <h3>Social Media Ecosystems</h3>
-            <p>Feeds que parecen editoriales, no catálogos. Diseño de contenido para Instagram, LinkedIn y TikTok.</p>
-            <ul class="service-includes">
-              <li>Estrategia de contenidos</li>
-              <li>Templates branded</li>
-              <li>Guidelines de fotografía</li>
-            </ul>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                ircle cx="8.5" cy="8.5" r="1.5"/>
-                <path d="M21 15l-5-5L5 21"/>
-              </svg>
-            </div>
-            <h3>Web Experiences</h3>
-            <p>Sitios que parecen trailer, no brochure. Desarrollo en Framer o Webflow con animaciones fluidas.</p>
-            <ul class="service-includes">
-              <li>Diseño UI/UX premium</li>
-              <li>Desarrollo en Framer/Webflow</li>
-              <li>Optimización SEO/performance</li>
-            </ul>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-            </div>
-            <h3>Art Direction On‑Demand</h3>
-            <p>Dirección de arte senior para campañas, lanzamientos y sesiones, sin contratar equipo in‑house.</p>
-            <ul class="service-includes">
-              <li>Concepto creativo</li>
-              <li>Dirección de sesiones</li>
-              <li>Post-producción</li>
-            </ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT / MANIFIESTO -->
-    <section class="section section-dark" id="about">
-      <div class="container about-block">
-        <span class="section-eyebrow">Filosofía</span>
-        <h2>Nosotros</h2>
-        <div class="manifesto-text">
-          <p class="manifesto-line">Creemos en marcas que se toman la estética tan en serio como sus números.</p>
-          <p class="manifesto-line">No trabajamos con cualquiera: buscamos marcas que quieran elevar su categoría.</p>
-          <p class="manifesto-line">El diseño es inversión estratégica, no gasto decorativo.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA FINAL + CONTACTO -->
-    <section class="section section-cta" id="contact">
-      <div class="container cta-block">
-        <h2>¿Listo para el próximo<br>salto visual?</h2>
-        <p>Cuéntanos en una frase qué quieres lograr. El resto es nuestra parte.</p>
-
-        <form class="contact-form">
-          <div class="form-grid">
-            <div class="form-row">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" name="name" placeholder="Tu nombre completo" required />
-            </div>
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <label for="current-site">Instagram / Web actual (opcional)</label>
-            <input type="text" id="current-site" name="current-site" placeholder="@tuinstagram o www.tusite.com" />
-          </div>
-          
-          <div class="form-row">
-            <label for="budget">Presupuesto estimado</label>
-            <select id="budget" name="budget">
-              <option value="">Selecciona una opción</option>
-              <option value="exploring">Estoy explorando opciones</option>
-              <option value="ready">Lista para invertir seriamente</option>
-              <option value="partner">Busco una alianza estratégica</option>
-            </select>
-          </div>
-          
-          <div class="form-row">
-            <label for="message">¿Qué quieres lograr con tu marca?</label>
-            <textarea id="message" name="message" rows="4" placeholder="En una frase: ej. Posicionar mi marca como opción premium en mi sector..."></textarea>
-          </div>
-          
-          <button type="submit" class="btn btn-primary btn-full">Enviar proyecto</button>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER CON "TRABAJA CON NOSOTROS" -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-col">
-          <div class="footer-logo-wrapper">
-            <img src="imagenes/logo_crea.png" alt="Logo Crea Design Studio" class="footer-logo">
-            <span class="footer-logo-text">CREA Design Studio</span>
-          </div>
-          <p>Estudio boutique de branding,<br>social media y web.</p>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Servicios</h4>
-          <nav class="footer-nav">
-            <a href="#services">Branding Systems</a>
-            <a href="#services">Social Media</a>
-            <a href="#services">Web Experiences</a>
-            <a href="#services">Art Direction</a>
-          </nav>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Estudio</h4>
-          <nav class="footer-nav">
-            <a href="#portfolio">Portfolio</a>
-            <a href="#laboratorio">Proceso</a>
-            <a href="#about">Nosotros</a>
-            <a href="#contact">Contacto</a>
-          </nav>
-        </div>
-        
-        <div class="footer-col">
-          <h4>Conectá</h4>
-          <nav class="footer-nav">
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-            <a href="https://behance.net" target="_blank">Behance</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-          </nav>
-        </div>
-
-        <!-- Nueva sección: Trabaja con nosotros -->
-        <div class="footer-col footer-col-wide">
-          <h4>Sumate al equipo</h4>
-          <p class="footer-careers-text">¿Sos diseñador, developer o creativo? Envianos tu portfolio y CV.</p>
-          <div class="footer-careers-actions">
-            <a href="mailto:estudiodcrea@gmail.com?subject=Quiero trabajar en CREA Design Studio" class="btn btn-ghost btn-small">
-              Enviar email
+    <!-- HEADER NAV -->
+    <header class="site-header">
+        <div class="container">
+            <a href="#top" class="logo">
+                <img src="imagenes/logo_crea.png" alt="Logo Crea Design Studio">
+                <span class="logo-text">CREA DESIGN STUDIO</span>
             </a>
-            <button class="btn btn-ghost btn-small" id="uploadCVBtn">
-              Cargar CV
-            </button>
-          </div>
-          <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" style="display: none;">
+
+            <nav class="main-nav">
+                <a href="#laboratorio">Laboratorio</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#services">Servicios</a>
+                <a href="#about">Nosotros</a>
+                <a href="#contact" class="nav-cta">Contacto</a>
+            </nav>
         </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>© 2026 Crea Design Studio. Todos los derechos reservados.</p>
-        <a href="#top" class="back-to-top">Volver arriba ↑</a>
-      </div>
-    </div>
-  </footer>
+    </header>
 
-  <!-- MODAL DE PROYECTO CON IMÁGENES -->
-  <div class="project-modal" id="projectModal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content">
-      <button class="modal-close" id="modalClose">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+    <main id="top">
+        <!-- HERO CON VIDEO -->
+        <section class="hero" id="hero">
+            <!-- Video de fondo -->
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="video/portada.mp4" type="video/mp4">
+            </video>
 
-      <div class="modal-body">
-        <!-- Header del proyecto -->
-        <header class="project-header">
-          <span class="project-category" id="modalCategory"></span>
-          <h2 class="project-title" id="modalTitle"></h2>
-          <p class="project-subtitle" id="modalSubtitle"></p>
-        </header>
+            <!-- Overlay con degradado -->
+            <div class="hero-video-overlay"></div>
 
-        <!-- Hero image -->
-        <div class="project-hero">
-          <div class="project-hero-image" id="modalHeroImage">
-            <img src="" alt="" id="modalHeroImg" class="modal-hero-img">
-          </div>
-        </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text-content">
+                        <div class="hero-badge fade-in">Estudio Boutique</div>
+                        <h1 class="fade-in-up">
+                            No solo diseñamos,<br>
+                            creamos legados visuales.
+                        </h1>
+                        <p class="fade-in-up delay-1">
+                            Estudio boutique de branding, social media y web para marcas que quieren cobrar más, no competir por precio.
+                        </p>
+                        <div class="hero-ctas fade-in-up delay-2">
+                            <a href="#contact" class="btn btn-primary">Agendar llamada</a>
+                            <a href="#portfolio" class="btn btn-ghost">Ver proyectos</a>
+                        </div>
+                    </div>
 
-        <!-- Detalles del proyecto -->
-        <div class="project-details">
-          <div class="detail-grid">
-            <div class="detail-item">
-              <h4>Cliente</h4>
-              <p id="modalClient"></p>
+                    <!-- Stats mini -->
+                    <div class="hero-stats fade-in-up delay-3">
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Sectores</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Recurrencia</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="detail-item">
-              <h4>Sector</h4>
-              <p id="modalSector"></p>
+        </section>
+
+        <!-- LABORATORIO / THE LAB -->
+        <section class="section" id="laboratorio">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-eyebrow">Proceso</span>
+                    <h2>Laboratorio</h2>
+                    <p>De boceto a sistema visual completo. Nuestro proceso transforma ideas en marcas que generan impacto medible.</p>
+                </header>
+
+                <div class="lab-steps">
+                    <article class="lab-step">
+                        <div class="step-number">01</div>
+                        <h3>Exploramos el territorio visual</h3>
+                        <p>Investigación profunda de sector, competencia y referencias para encontrar el lenguaje único de la marca.</p>
+                    </article>
+
+                    <article class="lab-step">
+                        <div class="step-number">02</div>
+                        <h3>Tensionamos la marca</h3>
+                        <p>Exploraciones de múltiples rutas visuales y conceptuales hasta encontrar la que genera mayor diferenciación.</p>
+                    </article>
+
+                    <article class="lab-step">
+                        <div class="step-number">03</div>
+                        <h3>Diseñamos sistemas, no solo logos</h3>
+                        <p>Identidad aplicable a todos los puntos de contacto: social, web, packaging y piezas clave de comunicación.</p>
+                    </article>
+
+                    <article class="lab-step">
+                        <div class="step-number">04</div>
+                        <h3>Activamos la marca</h3>
+                        <p>Lanzamiento estratégico en social media y ecosistema digital con plan de contenidos inicial incluido.</p>
+                    </article>
+                </div>
             </div>
-            <div class="detail-item">
-              <h4>Servicios</h4>
-              <p id="modalServices"></p>
+        </section>
+
+        <!-- PORTFOLIO CON IMÁGENES REALES Y LINKS -->
+        <section class="section section-dark" id="portfolio">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-eyebrow">Casos</span>
+                    <h2>Proyectos que hablan<br>con números</h2>
+                    <p>Cada proyecto es un caso de negocio, no solo un trabajo estético.</p>
+                </header>
+
+                <div class="bento-grid portfolio-grid">
+                    <!-- Proyecto 1 -->
+                    <article class="portfolio-card" data-project="beauty-premium" data-url="">
+                        <div class="portfolio-image">
+                            <img src="imagenes/portfolio/beauty-premium.jpg" alt="Marca Premium · Beauty" class="project-img">
+                            <div class="image-pattern pattern-1"></div>
+                        </div>
+                        <div class="portfolio-meta">
+                            <h3>Marca Premium · Beauty</h3>
+                            <p class="portfolio-tag">Branding · Social · Web</p>
+                            <ul class="portfolio-metrics">
+                                <li><span class="metric-label">+40% engagement</span> en 90 días</li>
+                                <li><span class="metric-label">0 → 12k</span> seguidores orgánicos</li>
+                                <li><span class="metric-label">+35%</span> ticket promedio</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 2 -->
+                    <article class="portfolio-card" data-project="tech-saas" data-url="">
+                        <div class="portfolio-image">
+                            <img src="imagenes/portfolio/tech-saas.jpg" alt="Tech Startup · SaaS" class="project-img">
+                            <div class="image-pattern pattern-2"></div>
+                        </div>
+                        <div class="portfolio-meta">
+                            <h3>Tech Startup · SaaS</h3>
+                            <p class="portfolio-tag">Branding · Web Experience</p>
+                            <ul class="portfolio-metrics">
+                                <li><span class="metric-label">+120%</span> conversión en landing</li>
+                                <li><span class="metric-label">-45%</span> bounce rate</li>
+                                <li><span class="metric-label">Serie A</span> levantada</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 3 -->
+                    <article class="portfolio-card" data-project="fashion-lifestyle" data-url="">
+                        <div class="portfolio-image">
+                            <img src="imagenes/portfolio/fashion-lifestyle.jpg" alt="Fashion Brand · Lifestyle" class="project-img">
+                            <div class="image-pattern pattern-3"></div>
+                        </div>
+                        <div class="portfolio-meta">
+                            <h3>Fashion Brand · Lifestyle</h3>
+                            <p class="portfolio-tag">Social Media Ecosystem</p>
+                            <ul class="portfolio-metrics">
+                                <li><span class="metric-label">Feed editorial</span> de lujo</li>
+                                <li><span class="metric-label">+28%</span> CTR en Instagram</li>
+                                <li><span class="metric-label">3.5%</span> engagement sostenido</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 4 -->
+                    <article class="portfolio-card" data-project="educacion-elearning" data-url="">
+                        <div class="portfolio-image">
+                            <img src="imagenes/portfolio/educacion-elearning.jpg" alt="Educación · E-learning" class="project-img">
+                            <div class="image-pattern pattern-4"></div>
+                        </div>
+                        <div class="portfolio-meta">
+                            <h3>Educación · E-learning</h3>
+                            <p class="portfolio-tag">Branding · Social · Web</p>
+                            <ul class="portfolio-metrics">
+                                <li><span class="metric-label">+200%</span> inscripciones orgánicas</li>
+                                <li><span class="metric-label">+60%</span> precio de curso</li>
+                                <li><span class="metric-label">+25%</span> finalización</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 5 -->
+                    <article class="portfolio-card" data-project="restaurant-fb" data-url="">
+                        <div class="portfolio-image">
+                            <img src="imagenes/portfolio/restaurant-fb.jpg" alt="Restaurant Group · F&B" class="project-img">
+                            <div class="image-pattern pattern-5"></div>
+                        </div>
+                        <div class="portfolio-meta">
+                            <h3>Restaurant Group · F&amp;B</h3>
+                            <p class="portfolio-tag">Branding · Art Direction</p>
+                            <ul class="portfolio-metrics">
+                                <li><span class="metric-label">+50%</span> reservas vía web</li>
+                                <li><span class="metric-label">+35%</span> ticket promedio</li>
+                                <li><span class="metric-label">Cobertura</span> en medios</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 6 -->
+                    <article class="portfolio-card" data-project="realestate-luxury" data-url="">
+                        <div class="portfolio-image">
+                            <img src="imagenes/portfolio/realestate-luxury.jpg" alt="Real Estate · Luxury" class="project-img">
+                            <div class="image-pattern pattern-6"></div>
+                        </div>
+                        <div class="portfolio-meta">
+                            <h3>Real Estate · Luxury</h3>
+                            <p class="portfolio-tag">Web · Social · Content</p>
+                            <ul class="portfolio-metrics">
+                                <li><span class="metric-label">+85%</span> tiempo en sitio</li>
+                                <li><span class="metric-label">+15%</span> leads cualificados</li>
+                                <li><span class="metric-label">-60%</span> tiempo de cierre</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="detail-item">
-              <h4>Año</h4>
-              <p id="modalYear"></p>
+        </section>
+
+        <!-- SERVICIOS ASIMÉTRICOS -->
+        <section class="section" id="services">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-eyebrow">Servicios</span>
+                    <h2>Sistemas visuales para marcas<br>que juegan en serio</h2>
+                </header>
+
+                <div class="services-grid">
+                    <!-- Branding Systems -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+                                <path d="M9 3V21" stroke="currentColor" stroke-width="2" />
+                                <path d="M15 3V21" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Branding Systems</h3>
+                        <p>Manual de marca que no se queda en un PDF olvidado. Sistema visual completo aplicable a todos los puntos de contacto de tu negocio.</p>
+                        <ul class="service-includes">
+                            <li>Identidad visual completa</li>
+                            <li>Manual de aplicación</li>
+                            <li>Templates editables</li>
+                            <li>Librería de assets</li>
+                        </ul>
+                    </article>
+
+                    <!-- Social Media Ecosystems -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="7" width="20" height="15" rx="2" stroke="currentColor" stroke-width="2" />
+                                <path d="M16 3L12 7L8 3" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Social Media Ecosystems</h3>
+                        <p>Feeds que parecen editoriales, no catálogos. Diseño de contenido para Instagram, LinkedIn y TikTok.</p>
+                        <ul class="service-includes">
+                            <li>Estrategia de contenidos</li>
+                            <li>Grillas y templates</li>
+                            <li>Guía de uso para el equipo</li>
+                        </ul>
+                    </article>
+
+                    <!-- Web Experiences -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2" />
+                                <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Web Experiences</h3>
+                        <p>Sitios que parecen trailer, no brochure. Desarrollo en Framer o Webflow con animaciones fluidas.</p>
+                        <ul class="service-includes">
+                            <li>Diseño UI/UX premium</li>
+                            <li>Desarrollo Framer/Webflow</li>
+                            <li>Optimización performance & SEO</li>
+                        </ul>
+                    </article>
+
+                    <!-- Art Direction On Demand -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" />
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" />
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Art Direction On Demand</h3>
+                        <p>Dirección de arte senior para campañas, lanzamientos y sesiones, sin contratar equipo in‑house.</p>
+                        <ul class="service-includes">
+                            <li>Concepto creativo</li>
+                            <li>Dirección de sesiones</li>
+                            <li>Supervisión de piezas clave</li>
+                        </ul>
+                    </article>
+
+                    <!-- NUEVO: Hosting & Infraestructura -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="4" width="18" height="6" rx="2" stroke="currentColor" stroke-width="2" />
+                                <rect x="3" y="14" width="18" height="6" rx="2" stroke="currentColor" stroke-width="2" />
+                                <circle cx="8" cy="7" r="1" fill="currentColor" />
+                                <circle cx="8" cy="17" r="1" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h3>Hosting & Infraestructura</h3>
+                        <p>Infraestructura pensada para marcas que no pueden caerse. Hosting gestionado y entornos listos para escalar.</p>
+                        <ul class="service-includes">
+                            <li>Configuración de dominio y DNS</li>
+                            <li>Hosting optimizado para performance</li>
+                            <li>SSL, backups y monitoreo básico</li>
+                        </ul>
+                    </article>
+
+                    <!-- NUEVO: Diseño Gráfico -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2" />
+                                <path d="M9 9H15V15H9V9Z" stroke="currentColor" stroke-width="2" />
+                                <path d="M4 14L8 10" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Diseño Gráfico</h3>
+                        <p>Soporte gráfico para tu día a día: piezas puntuales alineadas al sistema visual de tu marca.</p>
+                        <ul class="service-includes">
+                            <li>Material publicitario y piezas digitales</li>
+                            <li>Presentaciones y documentos clave</li>
+                            <li>Material para lanzamientos y campañas</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
-          </div>
+        </section>
+
+        <!-- ABOUT MANIFIESTO (CON INTRODUCCIÓN) -->
+        <section class="section section-dark" id="about">
+            <div class="container about-block">
+                <span class="section-eyebrow">Filosofía</span>
+                <h2>Nosotros</h2>
+
+                <!-- NUEVA INTRODUCCIÓN -->
+                <p class="about-intro">
+                    Somos un estudio boutique que combina estrategia, diseño y contenido para marcas que quieren jugar en ligas mayores.
+                    Trabajamos cerca de founders, equipos y marcas que entienden que el diseño es una palanca de negocio, no decoración.
+                </p>
+
+                <div class="manifesto-text">
+                    <p class="manifesto-line">Creemos en marcas que se toman la estética tan en serio como sus números.</p>
+                    <p class="manifesto-line">No trabajamos con cualquiera: buscamos marcas que quieran elevar su categoría.</p>
+                    <p class="manifesto-line">El diseño es inversión estratégica, no gasto decorativo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL CONTACTO -->
+        <section class="section section-cta" id="contact">
+            <div class="container cta-block">
+                <h2>Listo para el próximo<br>salto visual?</h2>
+                <p>Cuéntanos en una frase qué quieres lograr. El resto es nuestra parte.</p>
+
+                <form class="contact-form">
+                    <div class="form-grid">
+                        <div class="form-row">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="current-site">Instagram / Web actual (opcional)</label>
+                            <input type="text" id="current-site" name="current-site" placeholder="@tuinstagram o www.tusitio.com">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="budget">Presupuesto estimado</label>
+                            <select id="budget" name="budget" required>
+                                <option value="" selected>Selecciona una opción</option>
+                                <option value="exploring">Estoy explorando opciones</option>
+                                <option value="ready">Lista para invertir seriamente</option>
+                                <option value="partner">Busco una alianza estratégica</option>
+                                <option value="founder">Soy emprendedor</option>
+                                <option value="startup-scale">Tengo una startup en crecimiento</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">¿Qué quieres lograr con tu marca?</label>
+                        <textarea id="message" name="message" rows="4" placeholder="En una frase: ej. Posicionar mi marca como opción premium en mi sector..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Enviar proyecto</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FOOTER CON TRABAJA CON NOSOTROS -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-col">
+                        <div class="footer-logo-wrapper">
+                            <img src="imagenes/logo_crea.png" alt="Logo Crea Design Studio" class="footer-logo">
+                            <span class="footer-logo-text">CREA DESIGN STUDIO</span>
+                        </div>
+                        <p>Estudio boutique de branding,<br>social media y web.</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Servicios</h4>
+                        <nav class="footer-nav">
+                            <a href="#services">Branding Systems</a>
+                            <a href="#services">Social Media Ecosystems</a>
+                            <a href="#services">Web Experiences</a>
+                            <a href="#services">Art Direction On Demand</a>
+                            <a href="#services">Hosting &amp; Infraestructura</a>
+                            <a href="#services">Diseño Gráfico</a>
+                        </nav>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Estudio</h4>
+                        <nav class="footer-nav">
+                            <a href="#portfolio">Portfolio</a>
+                            <a href="#laboratorio">Proceso</a>
+                            <a href="#about">Nosotros</a>
+                            <a href="#contact">Contacto</a>
+                        </nav>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Conectá</h4>
+                        <nav class="footer-nav">
+                            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+                            <a href="https://behance.net" target="_blank" rel="noopener">Behance</a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                        </nav>
+                    </div>
+
+                    <!-- Sumate al equipo (SIN botón Cargar CV) -->
+                    <div class="footer-col footer-col-wide">
+                        <h4>Sumate al equipo</h4>
+                        <p class="footer-careers-text">
+                            ¿Sos diseñador, developer o creativo? Enviános tu portfolio y contanos por qué te gustaría sumar a CREA.
+                        </p>
+                        <div class="footer-careers-actions">
+                            <a href="mailto:estudiodcrea@gmail.com?subject=Quiero trabajar en CREA Design Studio"
+                               class="btn btn-ghost btn-small">
+                                Enviar correo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 Crea Design Studio. Todos los derechos reservados.</p>
+                    <div class="footer-links-legal">
+                        <a href="/politicas.pdf" target="_blank" rel="noopener">Políticas de privacidad</a>
+                        <span>·</span>
+                        <a href="/terminos.pdf" target="_blank" rel="noopener">Términos y condiciones</a>
+                    </div>
+                    <a href="#top" class="back-to-top">Volver arriba</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- MODAL DE PROYECTO CON IMÁGENES -->
+        <div class="project-modal" id="projectModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose" aria-label="Cerrar proyecto">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+                        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+
+                <div class="modal-body">
+                    <!-- Header del proyecto -->
+                    <header class="project-header">
+                        <span class="project-category" id="modalCategory"></span>
+                        <h2 class="project-title" id="modalTitle"></h2>
+                        <p class="project-subtitle" id="modalSubtitle"></p>
+                    </header>
+
+                    <!-- Hero image -->
+                    <div class="project-hero">
+                        <div class="project-hero-image" id="modalHeroImage">
+                            <img src="" alt="" id="modalHeroImg" class="modal-hero-img">
+                        </div>
+                    </div>
+
+                    <!-- Detalles del proyecto -->
+                    <div class="project-details">
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <h4>Cliente</h4>
+                                <p id="modalClient"></p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Sector</h4>
+                                <p id="modalSector"></p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Servicios</h4>
+                                <p id="modalServices"></p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Año</h4>
+                                <p id="modalYear"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="project-description">
+                        <h3>El desafío</h3>
+                        <p id="modalChallenge"></p>
+                        <h3>La solución</h3>
+                        <p id="modalSolution"></p>
+                        <h3>Resultados</h3>
+                        <div id="modalResults"></div>
+                    </div>
+
+                    <!-- Galería de imágenes -->
+                    <div class="project-gallery">
+                        <h3>Galería</h3>
+                        <div class="gallery-grid" id="modalGallery">
+                            <!-- Se llenará dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Link externo al proyecto completo -->
+                    <div class="project-external-link" id="modalExternalLink" style="display: none;">
+                        <a href="#" target="_blank" class="btn btn-primary" id="modalExternalLinkBtn">
+                            Ver proyecto completo
+                        </a>
+                    </div>
+
+                    <!-- Navegación entre proyectos -->
+                    <div class="project-navigation">
+                        <button class="nav-btn nav-prev" id="navPrev">
+                            <span>← Proyecto anterior</span>
+                        </button>
+                        <button class="nav-btn nav-next" id="navNext">
+                            <span>Siguiente proyecto →</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <!-- Descripción -->
-        <div class="project-description">
-          <h3>El Desafío</h3>
-          <p id="modalChallenge"></p>
-
-          <h3>La Solución</h3>
-          <p id="modalSolution"></p>
-
-          <h3>Resultados</h3>
-          <div id="modalResults"></div>
-        </div>
-
-        <!-- Galería de imágenes -->
-        <div class="project-gallery">
-          <h3>Galería</h3>
-          <div class="gallery-grid" id="modalGallery">
-            <!-- Se llenarán dinámicamente las imágenes -->
-          </div>
-        </div>
-
-        <!-- Link externo al proyecto completo -->
-        <div class="project-external-link" id="modalExternalLink" style="display: none;">
-          <a href="#" target="_blank" class="btn btn-primary" id="modalExternalLinkBtn">
-            Ver proyecto completo →
-          </a>
-        </div>
-
-        <!-- Navegación entre proyectos -->
-        <div class="project-navigation">
-          <button class="nav-btn nav-prev" id="navPrev">
-            <span>← Proyecto anterior</span>
-          </button>
-          <button class="nav-btn nav-next" id="navNext">
-            <span>Siguiente proyecto →</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

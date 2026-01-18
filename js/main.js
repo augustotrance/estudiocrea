@@ -3,16 +3,16 @@
 // ====================
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
 
 // ====================
@@ -20,28 +20,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ====================
 
 const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
 }, observerOptions);
 
 // Observar elementos con animación
 const animatedElements = document.querySelectorAll(
-  '.lab-step, .portfolio-card, .service-card, .manifesto-line'
+    '.lab-step, .portfolio-card, .service-card, .manifesto-line'
 );
 
 animatedElements.forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
 });
 
 // Clase para elementos visibles
@@ -69,7 +69,7 @@ cursorStyle.textContent = `
   * {
     cursor: none !important;
   }
-  
+
   .custom-cursor {
     width: 20px;
     height: 20px;
@@ -82,11 +82,11 @@ cursorStyle.textContent = `
     opacity: 0;
     mix-blend-mode: difference;
   }
-  
+
   .custom-cursor.active {
     opacity: 1;
   }
-  
+
   .custom-cursor.hover {
     transform: scale(1.8);
     background: rgba(255, 46, 139, 0.3);
@@ -96,30 +96,31 @@ cursorStyle.textContent = `
 document.head.appendChild(cursorStyle);
 
 document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX - 10 + 'px';
-  cursor.style.top = e.clientY - 10 + 'px';
-  cursor.classList.add('active');
+    cursor.style.left = e.clientX - 10 + 'px';
+    cursor.style.top = e.clientY - 10 + 'px';
+    cursor.classList.add('active');
 });
 
 document.addEventListener('mouseleave', () => {
-  cursor.classList.remove('active');
+    cursor.classList.remove('active');
 });
 
 document.addEventListener('mouseenter', () => {
-  cursor.classList.add('active');
+    cursor.classList.add('active');
 });
 
 // Efecto hover en elementos interactivos
-const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card, input, select, textarea');
+const interactiveElements = document.querySelectorAll(
+    'a, button, .portfolio-card, .service-card, input, select, textarea'
+);
 
 interactiveElements.forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.classList.add('hover');
-  });
-  
-  el.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+    });
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+    });
 });
 
 // ====================
@@ -127,41 +128,40 @@ interactiveElements.forEach(el => {
 // ====================
 
 const animateCounter = (element, target, duration = 2000) => {
-  const start = 0;
-  const increment = target / (duration / 16);
-  let current = start;
-  
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      element.textContent = target + (element.dataset.suffix || '');
-      clearInterval(timer);
-    } else {
-      element.textContent = Math.floor(current) + (element.dataset.suffix || '');
-    }
-  }, 16);
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + (element.dataset.suffix || '');
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + (element.dataset.suffix || '');
+        }
+    }, 16);
 };
 
 const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-      entry.target.classList.add('counted');
-      const statNumbers = entry.target.querySelectorAll('.stat-number');
-      
-      statNumbers.forEach(stat => {
-        const text = stat.textContent;
-        const number = parseInt(text.replace(/\D/g, ''));
-        const suffix = text.replace(/[0-9]/g, '');
-        stat.dataset.suffix = suffix;
-        animateCounter(stat, number, 1500);
-      });
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+            entry.target.classList.add('counted');
+            const statNumbers = entry.target.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const text = stat.textContent;
+                const number = parseInt(text.replace(/\D/g, ''));
+                const suffix = text.replace(/[0-9]/g, '');
+                stat.dataset.suffix = suffix;
+                animateCounter(stat, number, 1500);
+            });
+        }
+    });
 }, { threshold: 0.5 });
 
 const heroStats = document.querySelector('.hero-stats');
 if (heroStats) {
-  statsObserver.observe(heroStats);
+    statsObserver.observe(heroStats);
 }
 
 // ====================
@@ -171,30 +171,29 @@ if (heroStats) {
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const submitButton = contactForm.querySelector('.btn-primary');
-    const originalText = submitButton.textContent;
-    
-    submitButton.textContent = 'Enviando...';
-    submitButton.disabled = true;
-    
-    // Simular envío (reemplazar con tu lógica real)
-    setTimeout(() => {
-      submitButton.textContent = '✓ Proyecto enviado';
-      submitButton.style.background = '#a4ff3a';
-      
-      // Reset después de 3 segundos
-      setTimeout(() => {
-        contactForm.reset();
-        submitButton.textContent = originalText;
-        submitButton.style.background = '';
-        submitButton.disabled = false;
-      }, 3000);
-    }, 1500);
-  });
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const submitButton = contactForm.querySelector('.btn-primary');
+        const originalText = submitButton.textContent;
+
+        submitButton.textContent = 'Enviando...';
+        submitButton.disabled = true;
+
+        // Simular envío (reemplazar con tu lógica real)
+        setTimeout(() => {
+            submitButton.textContent = '✓ Proyecto enviado';
+            submitButton.style.background = '#a4ff3a';
+
+            // Reset después de 3 segundos
+            setTimeout(() => {
+                contactForm.reset();
+                submitButton.textContent = originalText;
+                submitButton.style.background = '';
+                submitButton.disabled = false;
+            }, 3000);
+        }, 1500);
+    });
 }
 
 // ====================
@@ -205,68 +204,40 @@ const header = document.querySelector('.site-header');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  
-  if (currentScroll > 100) {
-    header.style.background = 'rgba(10, 10, 15, 0.95)';
-    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-  } else {
-    header.style.background = 'rgba(10, 10, 15, 0.8)';
-    header.style.boxShadow = 'none';
-  }
-  
-  lastScroll = currentScroll;
-});
+    const currentScroll = window.pageYOffset;
 
-// ====================
-// UPLOAD CV FUNCTIONALITY
-// ====================
-
-const uploadCVBtn = document.getElementById('uploadCVBtn');
-const cvFileInput = document.getElementById('cvFileInput');
-
-if (uploadCVBtn && cvFileInput) {
-  uploadCVBtn.addEventListener('click', () => {
-    cvFileInput.click();
-  });
-
-  cvFileInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // Aquí puedes implementar la lógica para enviar el archivo
-      // Por ahora, solo mostramos un mensaje
-      const fileName = file.name;
-      const fileSize = (file.size / 1024).toFixed(2);
-      
-      alert(`Archivo seleccionado: ${fileName} (${fileSize} KB)\n\nPara enviar tu CV, por favor contactanos a estudiodcrea@gmail.com`);
-      
-      // Limpiar el input
-      cvFileInput.value = '';
+    if (currentScroll > 100) {
+        header.style.background = 'rgba(10, 10, 15, 0.95)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+    } else {
+        header.style.background = 'rgba(10, 10, 15, 0.8)';
+        header.style.boxShadow = 'none';
     }
-  });
-}
+
+    lastScroll = currentScroll;
+});
 
 // ====================
 // LAZY LOADING DE IMÁGENES
 // ====================
 
 if ('IntersectionObserver' in window) {
-  const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) {
-          img.src = img.dataset.src;
-          img.removeAttribute('data-src');
-          imageObserver.unobserve(img);
-        }
-      }
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            }
+        });
     });
-  });
-  
-  document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
-  });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
 }
 
 // ====================
@@ -275,126 +246,160 @@ if ('IntersectionObserver' in window) {
 
 // Datos de los proyectos (editá las URLs cuando las tengas listas)
 const projectsData = {
-  'beauty-premium': {
-    category: 'Branding · Social · Web',
-    title: 'Marca Premium · Beauty',
-    subtitle: 'Reposicionamiento de marca de belleza como opción premium en su sector',
-    client: 'Beauty Studio Premium',
-    sector: 'Beauty & Wellness',
-    services: 'Branding, Social Media, Web Design',
-    year: '2025',
-    challenge: 'El cliente necesitaba diferenciarse de la competencia local y justificar precios premium sin perder clientes actuales. La percepción de marca era genérica y no transmitía el nivel de servicio que ofrecían.',
-    solution: 'Desarrollamos un sistema de identidad visual sofisticado con paleta neutra y acentos dorados, fotografía editorial de alta calidad y web experience tipo revista de lujo. Rediseñamos toda la comunicación en redes sociales con templates branded y estrategia de contenidos premium.',
-    results: [
-      '+40% engagement en 90 días',
-      '0 → 12k seguidores orgánicos',
-      'Aumento de ticket promedio 35%',
-      'Retención de 90% de clientes existentes'
-    ],
-    heroImage: 'imagenes/portfolio/beauty-premium.jpg',
-    gallery: ['imagenes/portfolio/beauty-1.jpg', 'imagenes/portfolio/beauty-2.jpg', 'imagenes/portfolio/beauty-3.jpg', 'imagenes/portfolio/beauty-4.jpg'],
-    externalUrl: '' // Dejalo vacío o agregá la URL cuando la tengas
-  },
-  'tech-saas': {
-    category: 'Branding · Web Experience',
-    title: 'Tech Startup · SaaS',
-    subtitle: 'Identidad y web para plataforma SaaS B2B',
-    client: 'CloudFlow Tech',
-    sector: 'Software as a Service',
-    services: 'Branding, UI/UX, Web Development',
-    year: '2025',
-    challenge: 'Startup técnica sin identidad visual clara, necesitaba transmitir confiabilidad y modernidad para captar inversores y clientes enterprise. El equipo era 100% técnico sin experiencia en branding.',
-    solution: 'Sistema de branding minimalista tech, web con micro-interacciones fluidas en Framer, landing page optimizada para conversión con copy orientado a beneficios de negocio. Desarrollamos toda la narrativa de marca desde cero.',
-    results: [
-      '+120% conversión en landing',
-      'Reducción 45% bounce rate',
-      'Featured en Product Hunt',
-      'Cierre de ronda de inversión Serie A'
-    ],
-    heroImage: 'imagenes/portfolio/tech-saas.jpg',
-    gallery: ['imagenes/portfolio/tech-1.jpg', 'imagenes/portfolio/tech-2.jpg', 'imagenes/portfolio/tech-3.jpg', 'imagenes/portfolio/tech-4.jpg', 'imagenes/portfolio/tech-5.jpg'],
-    externalUrl: ''
-  },
-  'fashion-lifestyle': {
-    category: 'Social Media Ecosystem',
-    title: 'Fashion Brand · Lifestyle',
-    subtitle: 'Ecosistema de contenido para marca de moda sustentable',
-    client: 'Verde Moda Consciente',
-    sector: 'Fashion & Lifestyle',
-    services: 'Social Media Strategy, Content Design, Photography Direction',
-    year: '2024',
-    challenge: 'Marca con producto diferenciado pero sin presencia digital fuerte, feed genérico que no reflejaba los valores de sustentabilidad. Bajo engagement y pocas ventas por Instagram.',
-    solution: 'Feed tipo editorial de lujo con fotografía de lifestyle cuidada, templates diseñados para storytelling de cada prenda, guidelines completas de fotografía y estrategia de contenidos enfocada en valores de marca.',
-    results: [
-      'Feed tipo editorial de lujo',
-      '+28% CTR en Instagram',
-      '3.5% engagement rate sostenido',
-      '+40% ventas por Instagram en 3 meses'
-    ],
-    heroImage: 'imagenes/portfolio/fashion-lifestyle.jpg',
-    gallery: ['imagenes/portfolio/fashion-1.jpg', 'imagenes/portfolio/fashion-2.jpg', 'imagenes/portfolio/fashion-3.jpg', 'imagenes/portfolio/fashion-4.jpg', 'imagenes/portfolio/fashion-5.jpg', 'imagenes/portfolio/fashion-6.jpg'],
-    externalUrl: ''
-  },
-  'educacion-elearning': {
-    category: 'Branding · Social · Web',
-    title: 'Educación · E-learning',
-    subtitle: 'Rebranding completo de plataforma educativa online',
-    client: 'Academia Digital Pro',
-    sector: 'Educación Online',
-    services: 'Branding Systems, Web Design, Social Media',
-    year: '2024',
-    challenge: 'Plataforma educativa con marca amateur que no justificaba precios altos. Competían en un mercado saturado sin diferenciación clara.',
-    solution: 'Rebranding completo con identidad premium, rediseño de plataforma web con mejor UX, estrategia de contenidos en redes para posicionamiento como referentes del sector.',
-    results: [
-      'Posicionamiento premium sector',
-      '+200% inscripciones orgánicas',
-      'Precio curso aumentado 60%',
-      'Tasa de finalización de cursos +25%'
-    ],
-    heroImage: 'imagenes/portfolio/educacion-elearning.jpg',
-    gallery: ['imagenes/portfolio/edu-1.jpg', 'imagenes/portfolio/edu-2.jpg', 'imagenes/portfolio/edu-3.jpg', 'imagenes/portfolio/edu-4.jpg'],
-    externalUrl: ''
-  },
-  'restaurant-fb': {
-    category: 'Branding · Art Direction',
-    title: 'Restaurant Group · F&B',
-    subtitle: 'Dirección de arte y menú digital para grupo gastronómico',
-    client: 'Grupo Gastronómico del Sur',
-    sector: 'Food & Beverage',
-    services: 'Art Direction, Menu Design, Food Photography',
-    year: '2024',
-    challenge: 'Grupo con 3 locales sin identidad unificada, menús físicos desactualizados y fotografía amateur de platos. Necesitaban modernizar sin perder esencia.',
-    solution: 'Dirección completa de sesiones fotográficas de productos, menú digital interactivo tipo revista gastronómica, estrategia visual coherente entre los 3 locales manteniendo personalidad única de cada uno.',
-    results: [
-      'Menú fotográfico tipo revista',
-      '+50% reservas vía web',
-      'Cobertura en medios gastronómicos',
-      'Incremento 35% ticket promedio'
-    ],
-    heroImage: 'imagenes/portfolio/restaurant-fb.jpg',
-    gallery: ['imagenes/portfolio/rest-1.jpg', 'imagenes/portfolio/rest-2.jpg', 'imagenes/portfolio/rest-3.jpg', 'imagenes/portfolio/rest-4.jpg', 'imagenes/portfolio/rest-5.jpg'],
-    externalUrl: ''
-  },
-  'realestate-luxury': {
-    category: 'Web · Social · Content',
-    title: 'Real Estate · Luxury',
-    subtitle: 'Ecosistema digital para desarrolladora inmobiliaria de lujo',
-    client: 'Luxury Properties Group',
-    sector: 'Real Estate Premium',
-    services: 'Web Development, Social Content, Virtual Tours',
-    year: '2025',
-    challenge: 'Inmobiliaria de alta gama con sitio web genérico que no reflejaba el nivel de las propiedades. Leads de baja calidad y poca diferenciación vs competencia.',
-    solution: 'Sitio web premium con recorridos virtuales 360°, fotografía arquitectónica de alto nivel, estrategia de contenidos en redes para mostrar lifestyle y no solo propiedades.',
-    results: [
-      'Sitio con recorridos 360° premium',
-      '+85% tiempo en sitio',
-      '15% leads cualificados adicionales',
-      'Reducción 60% tiempo de cierre'
-    ],
-    heroImage: 'imagenes/portfolio/realestate-luxury.jpg',
-    gallery: ['imagenes/portfolio/real-1.jpg', 'imagenes/portfolio/real-2.jpg', 'imagenes/portfolio/real-3.jpg', 'imagenes/portfolio/real-4.jpg'],
-    externalUrl: ''
-  }
+    'beauty-premium': {
+        category: 'Branding · Social · Web',
+        title: 'Marca Premium · Beauty',
+        subtitle: 'Reposicionamiento de marca de belleza como opción premium en su sector',
+        client: 'Beauty Studio Premium',
+        sector: 'Beauty & Wellness',
+        services: 'Branding, Social Media, Web Design',
+        year: '2025',
+        challenge: 'El cliente necesitaba diferenciarse de la competencia local y justificar precios premium sin perder clientes actuales. La percepción de marca era genérica y no transmitía el nivel de servicio que ofrecían.',
+        solution: 'Desarrollamos un sistema de identidad visual sofisticado con paleta neutra y acentos dorados, fotografía editorial de alta calidad y web experience tipo revista de lujo. Rediseñamos toda la comunicación en redes sociales con templates branded y estrategia de contenidos premium.',
+        results: [
+            '+40% engagement en 90 días',
+            '0 → 12k seguidores orgánicos',
+            'Aumento de ticket promedio 35%',
+            'Retención de 90% de clientes existentes'
+        ],
+        heroImage: 'imagenes/portfolio/beauty-premium.jpg',
+        gallery: [
+            'imagenes/portfolio/beauty-1.jpg',
+            'imagenes/portfolio/beauty-2.jpg',
+            'imagenes/portfolio/beauty-3.jpg',
+            'imagenes/portfolio/beauty-4.jpg'
+        ],
+        externalUrl: '' // Dejalo vacío o agregá la URL cuando la tengas
+    },
+    'tech-saas': {
+        category: 'Branding · Web Experience',
+        title: 'Tech Startup · SaaS',
+        subtitle: 'Identidad y web para plataforma SaaS B2B',
+        client: 'CloudFlow Tech',
+        sector: 'Software as a Service',
+        services: 'Branding, UI/UX, Web Development',
+        year: '2025',
+        challenge: 'Startup técnica sin identidad visual clara, necesitaba transmitir confiabilidad y modernidad para captar inversores y clientes enterprise. El equipo era 100% técnico sin experiencia en branding.',
+        solution: 'Sistema de branding minimalista tech, web con micro-interacciones fluidas en Framer, landing page optimizada para conversión con copy orientado a beneficios de negocio. Desarrollamos toda la narrativa de marca desde cero.',
+        results: [
+            '+120% conversión en landing',
+            'Reducción 45% bounce rate',
+            'Featured en Product Hunt',
+            'Cierre de ronda de inversión Serie A'
+        ],
+        heroImage: 'imagenes/portfolio/tech-saas.jpg',
+        gallery: [
+            'imagenes/portfolio/tech-1.jpg',
+            'imagenes/portfolio/tech-2.jpg',
+            'imagenes/portfolio/tech-3.jpg',
+            'imagenes/portfolio/tech-4.jpg',
+            'imagenes/portfolio/tech-5.jpg'
+        ],
+        externalUrl: ''
+    },
+    'fashion-lifestyle': {
+        category: 'Social Media Ecosystem',
+        title: 'Fashion Brand · Lifestyle',
+        subtitle: 'Ecosistema de contenido para marca de moda sustentable',
+        client: 'Verde Moda Consciente',
+        sector: 'Fashion & Lifestyle',
+        services: 'Social Media Strategy, Content Design, Photography Direction',
+        year: '2024',
+        challenge: 'Marca con producto diferenciado pero sin presencia digital fuerte, feed genérico que no reflejaba los valores de sustentabilidad. Bajo engagement y pocas ventas por Instagram.',
+        solution: 'Feed tipo editorial de lujo con fotografía de lifestyle cuidada, templates diseñados para storytelling de cada prenda, guidelines completas de fotografía y estrategia de contenidos enfocada en valores de marca.',
+        results: [
+            'Feed tipo editorial de lujo',
+            '+28% CTR en Instagram',
+            '3.5% engagement rate sostenido',
+            '+40% ventas por Instagram en 3 meses'
+        ],
+        heroImage: 'imagenes/portfolio/fashion-lifestyle.jpg',
+        gallery: [
+            'imagenes/portfolio/fashion-1.jpg',
+            'imagenes/portfolio/fashion-2.jpg',
+            'imagenes/portfolio/fashion-3.jpg',
+            'imagenes/portfolio/fashion-4.jpg',
+            'imagenes/portfolio/fashion-5.jpg',
+            'imagenes/portfolio/fashion-6.jpg'
+        ],
+        externalUrl: ''
+    },
+    'educacion-elearning': {
+        category: 'Branding · Social · Web',
+        title: 'Educación · E-learning',
+        subtitle: 'Rebranding completo de plataforma educativa online',
+        client: 'Academia Digital Pro',
+        sector: 'Educación Online',
+        services: 'Branding Systems, Web Design, Social Media',
+        year: '2024',
+        challenge: 'Plataforma educativa con marca amateur que no justificaba precios altos. Competían en un mercado saturado sin diferenciación clara.',
+        solution: 'Rebranding completo con identidad premium, rediseño de plataforma web con mejor UX, estrategia de contenidos en redes para posicionamiento como referentes del sector.',
+        results: [
+            'Posicionamiento premium sector',
+            '+200% inscripciones orgánicas',
+            'Precio curso aumentado 60%',
+            'Tasa de finalización de cursos +25%'
+        ],
+        heroImage: 'imagenes/portfolio/educacion-elearning.jpg',
+        gallery: [
+            'imagenes/portfolio/edu-1.jpg',
+            'imagenes/portfolio/edu-2.jpg',
+            'imagenes/portfolio/edu-3.jpg',
+            'imagenes/portfolio/edu-4.jpg'
+        ],
+        externalUrl: ''
+    },
+    'restaurant-fb': {
+        category: 'Branding · Art Direction',
+        title: 'Restaurant Group · F&B',
+        subtitle: 'Dirección de arte y menú digital para grupo gastronómico',
+        client: 'Grupo Gastronómico del Sur',
+        sector: 'Food & Beverage',
+        services: 'Art Direction, Menu Design, Food Photography',
+        year: '2024',
+        challenge: 'Grupo con 3 locales sin identidad unificada, menús físicos desactualizados y fotografía amateur de platos. Necesitaban modernizar sin perder esencia.',
+        solution: 'Dirección completa de sesiones fotográficas de productos, menú digital interactivo tipo revista gastronómica, estrategia visual coherente entre los 3 locales manteniendo personalidad única de cada uno.',
+        results: [
+            'Menú fotográfico tipo revista',
+            '+50% reservas vía web',
+            'Cobertura en medios gastronómicos',
+            'Incremento 35% ticket promedio'
+        ],
+        heroImage: 'imagenes/portfolio/restaurant-fb.jpg',
+        gallery: [
+            'imagenes/portfolio/rest-1.jpg',
+            'imagenes/portfolio/rest-2.jpg',
+            'imagenes/portfolio/rest-3.jpg',
+            'imagenes/portfolio/rest-4.jpg',
+            'imagenes/portfolio/rest-5.jpg'
+        ],
+        externalUrl: ''
+    },
+    'realestate-luxury': {
+        category: 'Web · Social · Content',
+        title: 'Real Estate · Luxury',
+        subtitle: 'Ecosistema digital para desarrolladora inmobiliaria de lujo',
+        client: 'Luxury Properties Group',
+        sector: 'Real Estate Premium',
+        services: 'Web Development, Social Content, Virtual Tours',
+        year: '2025',
+        challenge: 'Inmobiliaria de alta gama con sitio web genérico que no reflejaba el nivel de las propiedades. Leads de baja calidad y poca diferenciación vs competencia.',
+        solution: 'Sitio web premium con recorridos virtuales 360°, fotografía arquitectónica de alto nivel, estrategia de contenidos en redes para mostrar lifestyle y no solo propiedades.',
+        results: [
+            'Sitio con recorridos 360° premium',
+            '+85% tiempo en sitio',
+            '15% leads cualificados adicionales',
+            'Reducción 60% tiempo de cierre'
+        ],
+        heroImage: 'imagenes/portfolio/realestate-luxury.jpg',
+        gallery: [
+            'imagenes/portfolio/real-1.jpg',
+            'imagenes/portfolio/real-2.jpg',
+            'imagenes/portfolio/real-3.jpg',
+            'imagenes/portfolio/real-4.jpg'
+        ],
+        externalUrl: ''
+    }
 };
 
 // Array de IDs de proyectos en orden
@@ -404,148 +409,159 @@ let currentProjectIndex = 0;
 // Elementos del modal
 const modal = document.getElementById('projectModal');
 const modalClose = document.getElementById('modalClose');
-const modalOverlay = modal.querySelector('.modal-overlay');
+const modalOverlay = modal ? modal.querySelector('.modal-overlay') : null;
 
 // Función para abrir el modal
 function openModal(projectId) {
-  const project = projectsData[projectId];
-  if (!project) return;
+    if (!modal) return;
 
-  // Actualizar índice del proyecto actual
-  currentProjectIndex = projectIds.indexOf(projectId);
+    const project = projectsData[projectId];
+    if (!project) return;
 
-  // Llenar datos del modal
-  document.getElementById('modalCategory').textContent = project.category;
-  document.getElementById('modalTitle').textContent = project.title;
-  document.getElementById('modalSubtitle').textContent = project.subtitle;
-  document.getElementById('modalClient').textContent = project.client;
-  document.getElementById('modalSector').textContent = project.sector;
-  document.getElementById('modalServices').textContent = project.services;
-  document.getElementById('modalYear').textContent = project.year;
-  document.getElementById('modalChallenge').textContent = project.challenge;
-  document.getElementById('modalSolution').textContent = project.solution;
+    // Actualizar índice del proyecto actual
+    currentProjectIndex = projectIds.indexOf(projectId);
 
-  // Llenar imagen hero
-  const heroImg = document.getElementById('modalHeroImg');
-  if (project.heroImage) {
-    heroImg.src = project.heroImage;
-    heroImg.alt = project.title;
-    heroImg.style.display = 'block';
-  } else {
-    heroImg.style.display = 'none';
-  }
+    // Llenar datos del modal
+    document.getElementById('modalCategory').textContent = project.category;
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalSubtitle').textContent = project.subtitle;
+    document.getElementById('modalClient').textContent = project.client;
+    document.getElementById('modalSector').textContent = project.sector;
+    document.getElementById('modalServices').textContent = project.services;
+    document.getElementById('modalYear').textContent = project.year;
+    document.getElementById('modalChallenge').textContent = project.challenge;
+    document.getElementById('modalSolution').textContent = project.solution;
 
-  // Llenar resultados
-  const resultsContainer = document.getElementById('modalResults');
-  resultsContainer.innerHTML = '<ul class="portfolio-metrics">' +
-    project.results.map(result => `<li>${result}</li>`).join('') +
-    '</ul>';
+    // Llenar imagen hero
+    const heroImg = document.getElementById('modalHeroImg');
+    if (project.heroImage) {
+        heroImg.src = project.heroImage;
+        heroImg.alt = project.title;
+        heroImg.style.display = 'block';
+    } else {
+        heroImg.style.display = 'none';
+    }
 
-  // Llenar galería
-  const galleryContainer = document.getElementById('modalGallery');
-  galleryContainer.innerHTML = '';
-  if (project.gallery && project.gallery.length > 0) {
-    project.gallery.forEach(imgSrc => {
-      const galleryItem = document.createElement('div');
-      galleryItem.className = 'gallery-item';
-      const img = document.createElement('img');
-      img.src = imgSrc;
-      img.alt = 'Galería ' + project.title;
-      galleryItem.appendChild(img);
-      galleryContainer.appendChild(galleryItem);
-    });
-  }
+    // Llenar resultados
+    const resultsContainer = document.getElementById('modalResults');
+    resultsContainer.innerHTML = `
+      <ul class="portfolio-metrics">
+        ${project.results.map(result => `<li>${result}</li>`).join('')}
+      </ul>
+    `;
 
-  // Mostrar/ocultar link externo
-  const externalLinkSection = document.getElementById('modalExternalLink');
-  const externalLinkBtn = document.getElementById('modalExternalLinkBtn');
-  if (project.externalUrl && project.externalUrl.trim() !== '') {
-    externalLinkBtn.href = project.externalUrl;
-    externalLinkSection.style.display = 'block';
-  } else {
-    externalLinkSection.style.display = 'none';
-  }
+    // Llenar galería
+    const galleryContainer = document.getElementById('modalGallery');
+    galleryContainer.innerHTML = '';
+    if (project.gallery && project.gallery.length > 0) {
+        project.gallery.forEach(imgSrc => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = `Galería ${project.title}`;
+            galleryItem.appendChild(img);
+            galleryContainer.appendChild(galleryItem);
+        });
+    }
 
-  // Actualizar navegación
-  updateNavigation();
+    // Mostrar/ocultar link externo
+    const externalLinkSection = document.getElementById('modalExternalLink');
+    const externalLinkBtn = document.getElementById('modalExternalLinkBtn');
 
-  // Mostrar modal
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+    if (project.externalUrl && project.externalUrl.trim() !== '') {
+        externalLinkBtn.href = project.externalUrl;
+        externalLinkSection.style.display = 'block';
+    } else {
+        externalLinkSection.style.display = 'none';
+    }
 
-  // Scroll al top del modal
-  modal.scrollTop = 0;
+    // Actualizar navegación
+    updateNavigation();
+
+    // Mostrar modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0;
 }
 
 // Función para cerrar el modal
 function closeModal() {
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 // Función para actualizar botones de navegación
 function updateNavigation() {
-  const prevBtn = document.getElementById('navPrev');
-  const nextBtn = document.getElementById('navNext');
+    const prevBtn = document.getElementById('navPrev');
+    const nextBtn = document.getElementById('navNext');
 
-  prevBtn.disabled = currentProjectIndex === 0;
-  nextBtn.disabled = currentProjectIndex === projectIds.length - 1;
+    if (!prevBtn || !nextBtn) return;
+
+    prevBtn.disabled = currentProjectIndex === 0;
+    nextBtn.disabled = currentProjectIndex === projectIds.length - 1;
 }
 
 // Función para navegar entre proyectos
 function navigateProject(direction) {
-  const newIndex = currentProjectIndex + direction;
-  if (newIndex >= 0 && newIndex < projectIds.length) {
+    const newIndex = currentProjectIndex + direction;
+    if (newIndex < 0 || newIndex >= projectIds.length) return;
     const newProjectId = projectIds[newIndex];
     openModal(newProjectId);
-  }
 }
 
 // Event listeners para las cards del portfolio
 document.querySelectorAll('.portfolio-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const projectId = card.dataset.project;
-    const externalUrl = card.dataset.url;
-    
-    // Si tiene URL externa y está definida, ir directamente
-    if (externalUrl && externalUrl.trim() !== '') {
-      window.open(externalUrl, '_blank');
-    } else if (projectId) {
-      // Si no, abrir modal
-      openModal(projectId);
-    }
-  });
+    card.addEventListener('click', () => {
+        const projectId = card.dataset.project;
+        const externalUrl = card.dataset.url;
+
+        // Si tiene URL externa, ir directo
+        if (externalUrl && externalUrl.trim() !== '') {
+            window.open(externalUrl, '_blank');
+        } else if (projectId) {
+            openModal(projectId);
+        }
+    });
 });
 
 // Event listener para cerrar modal
-modalClose.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', closeModal);
+if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+}
 
-// Event listeners para navegación
-document.getElementById('navPrev').addEventListener('click', () => {
-  navigateProject(-1);
-});
+if (modalOverlay) {
+    modalOverlay.addEventListener('click', closeModal);
+}
 
-document.getElementById('navNext').addEventListener('click', () => {
-  navigateProject(1);
-});
+// Event listeners para navegación en modal
+const prevBtn = document.getElementById('navPrev');
+const nextBtn = document.getElementById('navNext');
+
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => navigateProject(-1));
+}
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => navigateProject(1));
+}
 
 // Cerrar modal con ESC
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('active')) {
-    closeModal();
-  }
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+        closeModal();
+    }
 });
 
-// Navegación con flechas del teclado
+// Navegación con flechas del teclado dentro del modal
 document.addEventListener('keydown', (e) => {
-  if (!modal.classList.contains('active')) return;
-  
-  if (e.key === 'ArrowLeft') {
-    navigateProject(-1);
-  } else if (e.key === 'ArrowRight') {
-    navigateProject(1);
-  }
+    if (!modal || !modal.classList.contains('active')) return;
+
+    if (e.key === 'ArrowLeft') {
+        navigateProject(-1);
+    } else if (e.key === 'ArrowRight') {
+        navigateProject(1);
+    }
 });
 
-console.log('🎨 Crea Design Studio — Site loaded with full functionality');
+console.log('Crea Design Studio site loaded with full functionality');
