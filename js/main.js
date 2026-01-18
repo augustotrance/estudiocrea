@@ -285,9 +285,9 @@ const projectsData = {
             '+120% conversión en landing',
             'Reducción 45% bounce rate',
             'Featured en Product Hunt',
-            'Cierre de con clientes Serie A'
+            'Cierre con clientes Serie A'
         ],
-        heroImage: 'imagenes/portfolio/logoderito.png',
+        heroImage: 'imagenes/portfolio/logo_derito.png',
         gallery: [
             'imagenes/portfolio/derito_1.png',
             'imagenes/portfolio/derito_2.png',
@@ -391,7 +391,7 @@ const projectsData = {
             '15% leads cualificados adicionales',
             'Reducción 60% tiempo de cierre'
         ],
-        heroImage: 'imagenes/portfolio/logohertz.png',
+        heroImage: 'imagenes/portfolio/logo_hertz.png',
         gallery: [
             'imagenes/portfolio/hertz_1.png',
             'imagenes/portfolio/hertz_2.png',
