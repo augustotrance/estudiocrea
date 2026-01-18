@@ -393,10 +393,10 @@ const projectsData = {
         ],
         heroImage: 'imagenes/portfolio/logo_hertz.png',
         gallery: [
-            'imagenes/portfolio/hertz-1.jpg',
-            'imagenes/portfolio/hertz-2.jpg',
-            'imagenes/portfolio/hertz-3.jpg',
-            'imagenes/portfolio/hertz-4.jpg'
+            'imagenes/portfolio/hertz1.png',
+            'imagenes/portfolio/hertz2.png',
+            'imagenes/portfolio/hertz3.png',
+            'imagenes/portfolio/hertz4.png'
         ],
         externalUrl: ''
     }
