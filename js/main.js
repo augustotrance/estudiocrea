@@ -271,11 +271,11 @@ const projectsData = {
         ],
         externalUrl: '' // Dejalo vacío o agregá la URL cuando la tengas
     },
-    'derito-asociados': {
+    'derito-legal': {
         category: 'Branding · Web Experience',
-        title: 'Derito & asicioados · Estudio jurídico',
+        title: 'Derito Legal · Estudio jurídico',
         subtitle: 'Identidad y web para estudio jurídico de abogados',
-        client: 'Derito & asociados',
+        client: 'Derito Legal',
         sector: 'Estudio jurídico',
         services: 'Branding, UI/UX, Web Development',
         year: '2023',
