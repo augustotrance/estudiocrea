@@ -271,29 +271,29 @@ const projectsData = {
         ],
         externalUrl: '' // Dejalo vacío o agregá la URL cuando la tengas
     },
-    'tech-saas': {
+    'derito-asociados': {
         category: 'Branding · Web Experience',
-        title: 'Tech Startup · SaaS',
-        subtitle: 'Identidad y web para plataforma SaaS B2B',
-        client: 'CloudFlow Tech',
-        sector: 'Software as a Service',
+        title: 'Derito & asicioados · Estudio jurídico',
+        subtitle: 'Identidad y web para estudio jurídico de abogados',
+        client: 'Derito & asociados',
+        sector: 'Estudio jurídico',
         services: 'Branding, UI/UX, Web Development',
-        year: '2025',
-        challenge: 'Startup técnica sin identidad visual clara, necesitaba transmitir confiabilidad y modernidad para captar inversores y clientes enterprise. El equipo era 100% técnico sin experiencia en branding.',
+        year: '2023',
+        challenge: 'Estudio jurídico sin identidad visual clara, necesitaba transmitir confiabilidad y modernidad para captar clientes.',
         solution: 'Sistema de branding minimalista tech, web con micro-interacciones fluidas en Framer, landing page optimizada para conversión con copy orientado a beneficios de negocio. Desarrollamos toda la narrativa de marca desde cero.',
         results: [
             '+120% conversión en landing',
             'Reducción 45% bounce rate',
             'Featured en Product Hunt',
-            'Cierre de ronda de inversión Serie A'
+            'Cierre de con clientes Serie A'
         ],
-        heroImage: 'imagenes/portfolio/tech-saas.jpg',
+        heroImage: 'imagenes/portfolio/logo_derito.jpg',
         gallery: [
-            'imagenes/portfolio/tech-1.jpg',
-            'imagenes/portfolio/tech-2.jpg',
-            'imagenes/portfolio/tech-3.jpg',
-            'imagenes/portfolio/tech-4.jpg',
-            'imagenes/portfolio/tech-5.jpg'
+            'imagenes/portfolio/derito_1.jpg',
+            'imagenes/portfolio/derito_2.jpg',
+            'imagenes/portfolio/derito_3.jpg',
+            'imagenes/portfolio/derito_4.jpg',
+            'imagenes/portfolio/derito_5.jpg'
         ],
         externalUrl: ''
     },
