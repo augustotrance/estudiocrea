@@ -282,12 +282,12 @@ const projectsData = {
             'Aumento de ticket promedio 35%',
             'Retención de 90% de clientes existentes'
         ],
-        heroImage: 'imagenes/portfolio/beauty-premium.jpg',
+        heroImage: 'imagenes/portfolio/logo_beauty.png',
         gallery: [
-            'imagenes/portfolio/beauty-1.jpg',
-            'imagenes/portfolio/beauty-2.jpg',
-            'imagenes/portfolio/beauty-3.jpg',
-            'imagenes/portfolio/beauty-4.jpg'
+            'imagenes/portfolio/beauty_1.png',
+            'imagenes/portfolio/beauty_2.png',
+            'imagenes/portfolio/beauty_3.png',
+            'imagenes/portfolio/beauty_4.png'
         ],
         externalUrl: '' // Dejalo vacío o agregá la URL cuando la tengas
     },
