@@ -333,14 +333,13 @@ const projectsData = {
             '3.5% engagement rate sostenido',
             '+40% ventas por Instagram en 3 meses'
         ],
-        heroImage: 'imagenes/portfolio/fashion-lifestyle.jpg',
+        heroImage: 'imagenes/portfolio/lifestyle.png',
         gallery: [
-            'imagenes/portfolio/fashion-1.jpg',
-            'imagenes/portfolio/fashion-2.jpg',
-            'imagenes/portfolio/fashion-3.jpg',
-            'imagenes/portfolio/fashion-4.jpg',
-            'imagenes/portfolio/fashion-5.jpg',
-            'imagenes/portfolio/fashion-6.jpg'
+            'imagenes/portfolio/fashion_1.png',
+            'imagenes/portfolio/fashion_2.png',
+            'imagenes/portfolio/fashion_3.png',
+            'imagenes/portfolio/fashion_4.png',
+            'imagenes/portfolio/fashion_5.png'
         ],
         externalUrl: ''
     },
