@@ -1323,7 +1323,8 @@ textarea {
     }
 
     .logo-text {
-        display: none;
+        display: block;
+        font-size: 0.9rem;
     }
 
     .hero {
