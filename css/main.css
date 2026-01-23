@@ -1458,11 +1458,11 @@ textarea {
     }
 
     .modal-content {
-        padding: 4rem 1rem 2rem !important; /* Ganamos espacio lateral */
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
-        box-sizing: border-box !important; /* Evita que el padding sume al ancho */
+        padding: 5rem 1.25rem 3rem !important; /* Espacio superior para el botón de cierre */
+        box-sizing: border-box !important; /* Crucial para que el padding no corte la info a la derecha */
     }
 
     .modal-close {
@@ -1471,8 +1471,9 @@ textarea {
     }
 
     .detail-grid {
-        grid-template-columns: 1fr !important; /* Una sola columna: texto completo */
+        grid-template-columns: 1fr !important; /* Pasa de 2 columnas a 1 para que el texto quepa entero */
         gap: 1.5rem !important;
+        width: 100% !important;
     }
 
     .project-header {
@@ -1481,14 +1482,17 @@ textarea {
     }
 
     .project-modal {
+        display: block !important; /* Cambia flex por block para evitar el corte superior e inferior */
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch;
+        padding: 0 !important;
     }
 
     .project-title {
-        font-size: 1.8rem !important; /* Evita desborde horizontal del texto */
+        font-size: 1.8rem !important;
+        line-height: 1.2 !important;
+        white-space: normal !important; /* Permite que el título baje a la siguiente línea */
         word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
     }
 
     .project-details {
@@ -1498,8 +1502,10 @@ textarea {
     }
 
     .project-hero-image {
-        min-height: 250px !important; /* Altura proporcional para móviles */
+        min-height: auto !important; /* Elimina los 500px que causan el corte del texto inferior */
         height: auto !important;
+        aspect-ratio: 16/9;
+        margin-bottom: 2rem !important;
     }
 
     .project-description {
@@ -1516,7 +1522,7 @@ textarea {
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr !important; /* Imágenes a ancho completo */
+        grid-template-columns: 1fr !important; /* Imágenes a pantalla completa para evitar cortes */
         gap: 1rem !important;
     }
 
