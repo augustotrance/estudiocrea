@@ -1458,11 +1458,11 @@ textarea {
     }
 
     .modal-content {
-        padding: 3rem 1rem 2rem !important; /* Reduce drásticamente los márgenes superiores y laterales */
-        max-width: 100% !important;
+        padding: 4rem 1rem 2rem !important; /* Ganamos espacio lateral */
         width: 100% !important;
+        max-width: 100% !important;
         margin: 0 !important;
-        box-sizing: border-box !important;
+        box-sizing: border-box !important; /* Evita que el padding sume al ancho */
     }
 
     .modal-close {
@@ -1471,8 +1471,7 @@ textarea {
     }
 
     .detail-grid {
-        display: flex !important;
-        flex-direction: column !important; /* Apilado vertical estricto */
+        grid-template-columns: 1fr !important; /* Una sola columna: texto completo */
         gap: 1.5rem !important;
     }
 
@@ -1482,24 +1481,25 @@ textarea {
     }
 
     .project-modal {
-        overflow-y: scroll !important; /* Fuerza la capacidad de scroll */
-        -webkit-overflow-scrolling: touch; /* Suavidad en iOS */
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
     }
 
     .project-title {
-        font-size: 1.8rem !important; /* Tamaño reducido para evitar desbordamiento horizontal */
+        font-size: 1.8rem !important; /* Evita desborde horizontal del texto */
         word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
     }
 
     .project-details {
-        padding: 1.25rem !important;
-        margin: 1rem 0 !important;
+        padding: 1.5rem !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
     .project-hero-image {
-        min-height: 250px !important; /* Reduce la altura de la imagen principal para ver el texto más rápido */
+        min-height: 250px !important; /* Altura proporcional para móviles */
+        height: auto !important;
     }
 
     .project-description {
@@ -1516,7 +1516,7 @@ textarea {
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr !important; /* Una sola imagen por fila */
+        grid-template-columns: 1fr !important; /* Imágenes a ancho completo */
         gap: 1rem !important;
     }
 
