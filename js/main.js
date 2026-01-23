@@ -584,4 +584,13 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+const toggle = document.querySelector('.nav-toggle');
+const menu = document.querySelector('.main-nav');
+if (toggle) {
+    toggle.addEventListener('click', () => menu.classList.toggle('active'));
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.remove('active'));
+    });
+}
+
 console.log('Crea Design Studio site loaded with full functionality');

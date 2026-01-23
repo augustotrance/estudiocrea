@@ -1419,4 +1419,11 @@ textarea {
     .footer-logo-text {
         font-size: 0.85rem;
     }
+    
+    @media (max-width: 768px) {
+    .nav-toggle { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; z-index: 1100; }
+    .nav-toggle .bar { width: 25px; height: 2px; background: var(--color-text); transition: 0.3s; }
+    .main-nav { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: var(--color-bg); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; transition: 0.4s; z-index: 1000; border-left: 1px solid rgba(255,255,255,0.1); }
+    .main-nav.active { right: 0; }
+    }
 }
