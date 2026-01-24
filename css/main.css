@@ -1203,8 +1203,26 @@ textarea {
     align-items: center;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.85rem;
     color: var(--color-text-muted);
+    gap: 2rem;
+}
+
+/* Forzamos el mismo tamaño y una sola línea para todos los textos */
+.footer-bottom p, 
+.footer-bottom span, 
+.footer-bottom a {
+    font-size: 0.85rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    margin: 0;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: nowrap !important;
 }
 
 .footer-links-legal {
