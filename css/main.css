@@ -1477,26 +1477,15 @@ textarea {
     }
 
     .modal-close {
-        position: fixed !important;
+        position: absolute !important;
         top: 20px !important;
-        right: 20px !important;
-        z-index: 10010 !important;
-        width: 44px !important;
-        height: 44px !important;
-        background: rgba(255, 46, 139, 0.95) !important;
-        border: 2px solid white !important;
-        border-radius: 50% !important;
+        right: 0.5rem !important;
+        z-index: 1001 !important;
+        width: 40px !important;
+        height: 40px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    }
-    
-    .modal-close svg {
-        stroke: white !important;
-        stroke-width: 2.5px !important;
-        width: 22px !important;
-        height: 22px !important;
     }
 
     .detail-item {
@@ -1563,6 +1552,10 @@ textarea {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+    }
+
+    .project-modal.active .modal-close svg line {
+        stroke: #ffffff !important;
     }
   
     /* Forzar a que nada se salga */
