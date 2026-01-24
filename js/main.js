@@ -503,6 +503,10 @@ function openModal(projectId) {
 
     // Mostrar modal
     currentProjectIndex = projectIds.indexOf(projectId);
+    // GUARDAR POSICIÓN ACTUAL ANTES DE ABRIR MODAL
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    document.body.style.top = `-${scrollY}px`;
+    document.body.classList.add('modal-open');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     modal.scrollTop = 0;
@@ -542,11 +546,25 @@ function openModal(projectId) {
 function closeModal() {
     if (!modal) return;
     
-    // 1. Cerrar modal
+    // 1. RESTAURAR POSICIÓN PRIMERO
+    const scrollY = document.body.style.top;
+    const scrollPosition = scrollY ? Math.abs(parseInt(scrollY)) : 0;
+    
+    // 2. Cerrar modal
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    document.body.classList.remove('modal-open');
+    document.body.style.removeProperty('top');
     
-    // 2. NADA MÁS - la página se quedará donde está
+    // 3. Restaurar scroll DESPUÉS de que el DOM se estabilice
+    if (scrollPosition > 0) {
+        setTimeout(() => {
+            window.scrollTo({
+                top: scrollPosition,
+                behavior: 'instant'
+            });
+        }, 50);
+    }
 }
 
 // Función para actualizar botones de navegación
