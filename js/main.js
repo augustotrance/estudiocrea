@@ -433,6 +433,8 @@ const modalOverlay = modal ? modal.querySelector('.modal-overlay') : null;
 
 // Función para abrir el modal
 function openModal(projectId) {
+    document.body.classList.add('modal-open');
+    
     if (!modal) return;
 
     const project = projectsData[projectId];
@@ -500,16 +502,51 @@ function openModal(projectId) {
     updateNavigation();
 
     // Mostrar modal
+    currentProjectIndex = projectIds.indexOf(projectId);
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     modal.scrollTop = 0;
+
+    if (window.innerWidth <= 768) {
+        // 1. Scroll del modal principal al top
+        modal.scrollTop = 0;
+    
+        // 2. Scroll del contenido del modal al top
+        const modalContent = document.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
+    
+        // 3. window.scrollTo(0, 0); // ← QUITADA
+    
+        // 4. Esperar un frame y hacerlo de nuevo (para móvil)
+        setTimeout(() => {
+            modal.scrollTop = 0;
+            if (modalContent) {
+                modalContent.scrollTop = 0;
+            }
+        }, 10);
+    } else {
+        // Para desktop, comportamiento normal
+        modal.scrollTop = 0;
+        requestAnimationFrame(() => {
+            const modalContent = document.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.scrollTop = 0;
+            }
+        });
+    }
 }
 
 // Función para cerrar el modal
 function closeModal() {
     if (!modal) return;
+    
+    // 1. Cerrar modal
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    
+    // 2. NADA MÁS - la página se quedará donde está
 }
 
 // Función para actualizar botones de navegación
