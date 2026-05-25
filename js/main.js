@@ -403,7 +403,7 @@ const projectsData = {
         client: 'Hertz',
         sector: 'Alquiler de autos',
         services: 'Web Development, Social Content, Piezas gráficas',
-        year: '2022',
+        year: '2019',
         challenge: 'Creamos la página Web y posicionamos su empresa en Google.',
         solution: 'Desarrollamos la identidad de Hertz. Diseñamos folletería y videos publicitarios. Contruimos la estrategia de contenidos en redes sociales.',
         results: [
