@@ -359,12 +359,14 @@ const projectsData = {
             'Precio curso aumentado 60%',
             'Tasa de finalización de cursos +25%'
         ],
-        heroImage: 'imagenes/portfolio/educacion-elearning.jpg',
+        heroImage: 'imagenes/portfolio/elearning.png',
         gallery: [
-            'imagenes/portfolio/edu-1.jpg',
-            'imagenes/portfolio/edu-2.jpg',
-            'imagenes/portfolio/edu-3.jpg',
-            'imagenes/portfolio/edu-4.jpg'
+            'imagenes/portfolio/edu_1.png',
+            'imagenes/portfolio/edu_2.png',
+            'imagenes/portfolio/edu_3.png',
+            'imagenes/portfolio/edu_4.png',
+            'imagenes/portfolio/edu_5.png',
+            'imagenes/portfolio/edu_6.png'
         ],
         externalUrl: ''
     },
@@ -382,7 +384,7 @@ const projectsData = {
             'Menú fotográfico tipo revista',
             '+50% reservas vía web',
             'Cobertura en medios gastronómicos',
-            'Incremento 35% ticket promedio'
+            'Incremento 25% ticket promedio'
         ],
         heroImage: 'imagenes/portfolio/restaurant-fb.jpg',
         gallery: [
